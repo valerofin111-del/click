@@ -1,2 +1,2 @@
 # click
-Click is a project to chatting and click! 
+App with Node.js and React
