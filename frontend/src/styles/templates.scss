@@ -1,13 +1,12 @@
-$color-bg: hsl(225, 95%, 5%);
-$color-fg: hsl(220, 60%, 10%);
-$color-message: hsl(235, 70%, 10%);
-$color-pick: hsl(70, 70%, 50%);
-$color-text: hsl(0, 0%, 70%);
-$color-border: hsl(0, 0%, 30%);
-$color-btn: hsl(230, 5%, 55%);
+$color-bg: hsl(0, 0%, 85%);
+$color-fg: hsl(0, 0%, 25%);
+$color-card: hsl(280, 4%, 44%);
+$color-pick: hsl(212, 43%, 52%);
+$color-text: hsl(0, 0%, 75%);
+$color-border: hsl(214, 35%, 55%);
+$color-btn: hsl(0, 0%, 15%);
 $color-warning: hsl(0, 76%, 52%);
-$color-name: hsl(220, 90%, 35%);
-$color-settings: hsl(29, 85%, 45%);
+$color-settings: hsl(0, 0%, 5%);
 
 @mixin Card {
     background-color: $color-fg;

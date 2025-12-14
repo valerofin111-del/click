@@ -3,8 +3,16 @@
 .Welcome {
     @include t.Card;
 
+    h1 {
+        font-size: 26px;
+        display: flex;
+        justify-content: center;
+        gap: 6px
+    }
+
     .Title {
-        color: t.$color-pick
+        color: t.$color-pick;
+        font-size: 26px;
     }
 
     .Nav {
@@ -16,7 +24,7 @@
 
         .Link {
             text-decoration: none;
-            color: t.$color-settings;
+            color: t.$color-pick;
             font-size: 32px;
 
             &:hover {

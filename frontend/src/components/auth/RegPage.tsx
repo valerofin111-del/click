@@ -31,7 +31,7 @@ var RegPage = function () {
   return (
     <>
         <Flex justify={"center"}>
-        <div className={styles.AuthForm} >
+        <motion.div className={styles.AuthForm} initial={{ opacity: 0, transition: { duration: 0.1 } }} animate={{ opacity: 1 }} >
 
             <form onSubmit={handleSubmit(sendForm)}>
                 <Flex justify={"center"} direction={"column"}>
@@ -62,10 +62,10 @@ var RegPage = function () {
                 </Flex>
             </form>    
 
-        </div>
+        </motion.div>
         </Flex>
         
-        <Link to='/' className={styles.Back}>Back</Link>
+        <motion.span className={styles.Back} initial={{ y: 120 }} animate={{ y: 0 }} ><Link className={styles.Link} to='/'>Back</Link></motion.span>
     </>
   )
 }
