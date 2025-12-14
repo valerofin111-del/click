@@ -97,9 +97,12 @@
     display: flex;
     justify-content: center;
     font-size: 22px;
-    color: t.$color-settings;
 
     &:hover {
         text-decoration: underline;
+    }
+
+    .Link {
+        color: t.$color-settings;
     }
 }
