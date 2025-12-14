@@ -3,6 +3,9 @@ import __root from "./components/__root";
 import Welcome from "./components/Welcome";
 import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
+import MainPage from "./components/app/MainPage";
+import Chat from "./components/app/Chat";
+import FindFriends from "./components/app/FindFriends";
 
 var App = function () {
     
@@ -22,6 +25,20 @@ var App = function () {
                 {
                     path: 'reg',
                     element: <RegPage />
+                },
+                {
+                    path: 'app',
+                    element: <MainPage />,
+                    children: [
+                        {
+                            path: 'chat',
+                            element: <Chat />
+                        },
+                        {
+                            path: 'find',
+                            element: <FindFriends />
+                        }
+                    ]
                 }
             ] 
         }
