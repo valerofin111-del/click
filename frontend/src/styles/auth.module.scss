@@ -23,10 +23,6 @@
                 font-weight: 900;
                 font-style: normal;
                 font-size: 20px;
-
-                &:hover {
-                    border-color: t.$color-settings;
-                }
             }
         }
 
@@ -48,10 +44,6 @@
                 font-weight: 900;
                 font-style: normal;
                 font-size: 20px;
-
-                &:hover {
-                    border-color: t.$color-settings;
-                }
             }
         }
 
@@ -71,15 +63,6 @@
             font-weight: 900;
             font-style: normal;
             font-size: 32px;
-
-            &:hover {
-                background-color: t.$color-pick;
-                color: black;
-            }
-
-            &:active {
-                background-color: t.$color-warning;
-            }
         }
 
         .error {

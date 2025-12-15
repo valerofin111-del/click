@@ -16,4 +16,5 @@ $color-settings: hsl(0, 0%, 5%);
     height: 320px;
     margin: 46px;
     padding: 64px;
+    box-shadow: 2px 2px 1px 1px $color-settings;
 }

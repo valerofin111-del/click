@@ -6,6 +6,7 @@ import RegPage from "./components/auth/RegPage";
 import MainPage from "./components/app/MainPage";
 import Chat from "./components/app/Chat";
 import FindFriends from "./components/app/FindFriends";
+import Options from "./components/app/Options";
 
 var App = function () {
     
@@ -37,6 +38,10 @@ var App = function () {
                         {
                             path: 'find',
                             element: <FindFriends />
+                        },
+                        {
+                            path: 'options',
+                            element: <Options />
                         }
                     ]
                 }
