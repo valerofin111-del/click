@@ -37,7 +37,7 @@ var MainPage = () => {
                 </Flex>
 
                 <h2>img</h2>
-                <h2>Result: </h2>
+                <h2>Clicks: {} </h2>
             </Card>
         </Flex>
     </>
