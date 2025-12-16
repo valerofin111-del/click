@@ -1,12 +1,20 @@
-import { motion } from "motion/react"
+// import { motion } from "motion/react"
 import { Flex } from "@radix-ui/themes"
-import styles from '../../styles/app.module.scss'
+// import styles from '../../styles/app.module.scss'
+import PickText from "../library/PickText/PickText"
+import themeAtom from "../../atoms/themeAtom"
+import { useAtomValue } from "jotai"
 
 var Chat = () => {
+
+    var theme = useAtomValue(themeAtom)
+
     return (
         <>
-            <motion.h1 className={styles.Title} >Name of chat</motion.h1>
-                
+            <Flex justify={'center'}>
+                <PickText className={theme}>Name of chat</PickText>
+            </Flex>
+
             <Flex justify={'center'} direction={'column'}>
                 <div>
                     <p>messages</p>

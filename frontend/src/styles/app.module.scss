@@ -11,12 +11,6 @@
     @include t.Card;
     width: 65%;
 
-    .Title {
-        display: flex;
-        justify-content: center;
-        color: t.$color-pick;
-    }
-
     div {
         
         p {
@@ -27,10 +21,4 @@
 
 .Clicker {
     @include t.Card;
-
-    h1 {
-        display: flex;
-        justify-content: center;
-        color: t.$color-pick;
-    }
 }

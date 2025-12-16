@@ -1,0 +1,21 @@
+@use '../../../styles/templates.scss' as t;
+
+.blueTheme {
+    color: t.$color-pick-blue;
+}
+
+.greenTheme {
+    color: t.$color-pick-green;
+}
+
+.redTheme {
+    color: t.$color-pick-red;
+}
+
+.orangeTheme {
+    color: t.$color-pick-orange;
+}
+
+.yellowTheme {
+    color: t.$color-pick-yellow
+}

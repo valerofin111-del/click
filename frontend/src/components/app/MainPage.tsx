@@ -3,8 +3,14 @@ import styles from '../../styles/app.module.scss'
 import { motion } from 'motion/react'
 import { Outlet } from 'react-router-dom'
 import Card from '../library/Card'
+import PickText from '../library/PickText/PickText'
+import { useAtomValue } from 'jotai'
+import themeAtom from '../../atoms/themeAtom'
 
 var MainPage = () => {
+
+    var theme = useAtomValue(themeAtom)
+
     return (
     <>
         <Flex justify={'center'} >
@@ -20,7 +26,11 @@ var MainPage = () => {
             </Card>
 
             <Card className={styles.Clicker} >
-                <h1>Click!</h1>
+                
+                <Flex justify={'center'}>
+                    <PickText className={theme}>Click!</PickText>
+                </Flex>
+
                 <h2>img</h2>
                 <h2>Result: </h2>
             </Card>
