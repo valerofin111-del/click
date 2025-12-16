@@ -59,7 +59,7 @@ var RegPage = function () {
                     <motion.button className={styles.AuthButton}
                       type="submit" 
                       disabled={isSubmitting}
-                      whileTap={{ scale: 0.8, backgroundColor: 'hsl(0, 76%, 52%)' }}
+                      whileTap={{ scale: 0.8, backgroundColor: 'hsl(0, 59%, 61%)' }}
                       whileHover={{ scale: 1.1, color: 'hsl(0, 0%, 5%)' }}
                     >
                     {isSubmitting ? '...' : 'Reg'}

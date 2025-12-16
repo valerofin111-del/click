@@ -5,7 +5,7 @@ import PickText from "../library/PickText/PickText"
 import themeAtom from "../../atoms/themeAtom"
 import { useAtomValue } from "jotai"
 
-var FindFriends = () => {
+var SearchFriends = () => {
 
     var theme = useAtomValue(themeAtom)
 
@@ -18,4 +18,4 @@ var FindFriends = () => {
     )
 }
 
-export default FindFriends
+export default SearchFriends

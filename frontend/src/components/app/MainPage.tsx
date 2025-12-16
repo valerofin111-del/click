@@ -1,28 +1,22 @@
 import { Flex } from '@radix-ui/themes'
-import styles from '../../styles/app.module.scss'
-import { motion } from 'motion/react'
 import { Outlet } from 'react-router-dom'
 import Card from '../library/Card/Card'
-import PickText from '../library/PickText/PickText'
 import { useAtomValue } from 'jotai'
 import themeAtom from '../../atoms/themeAtom'
 import Nav from './Nav'
+import styles from '../../styles/app.module.scss'
+import Clicker from './Clicker'
 
 var MainPage = () => {
 
     var theme = useAtomValue(themeAtom)
     var themeMain = theme + 'Main'
     var themeNav = theme + 'Nav'
+    var themeClicker = theme + 'Clicker'
 
     return (
     <>
-        <Flex justify={'center'} >
-            <motion.div className={styles.ChatList} initial={{ y: -120 }} animate={{ y: 0 }} >
-                <h1 className={styles.ChatName} >ChatsList</h1>
-            </motion.div>
-        </Flex>
-
-        <Flex justify={'center'} direction={'row'} >
+        <Flex className={styles.App} justify={'center'} >
 
             <Card className={themeMain}>
                 <Outlet />
@@ -32,12 +26,8 @@ var MainPage = () => {
 
                 <Nav className={themeNav} />
 
-                <Flex justify={'center'}>
-                    <PickText className={theme}>Click!</PickText>
-                </Flex>
+                <Clicker className={themeClicker} />
 
-                <h2>img</h2>
-                <h2>Clicks: {} </h2>
             </Card>
         </Flex>
     </>

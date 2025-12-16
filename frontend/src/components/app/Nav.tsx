@@ -21,7 +21,7 @@ var Nav = (
                             <Select.Content className={styles[className]} position='popper'>
                                 <Select.Viewport>
                                     <Select.Group>
-                                        <Select.Item value='chat'>Chat</Select.Item>
+                                        <Select.Item value='chats'>Chat</Select.Item>
                                         <Select.Item value='friends'>Friends</Select.Item>
                                         <Select.Item value='options'>Options</Select.Item>
                                     </Select.Group>

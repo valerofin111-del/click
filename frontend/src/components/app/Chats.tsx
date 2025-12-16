@@ -5,27 +5,30 @@ import PickText from "../library/PickText/PickText"
 import themeAtom from "../../atoms/themeAtom"
 import { useAtomValue } from "jotai"
 
-var Chat = () => {
+var Chats = () => {
 
     var theme = useAtomValue(themeAtom)
 
     return (
         <>
             <Flex justify={'center'}>
-                <PickText className={theme}>Name of chat</PickText>
+                <PickText className={theme}>Chats</PickText>
             </Flex>
 
             <Flex justify={'center'} direction={'column'}>
                 <div>
-                    <p>messages</p>
-                    <p>messages</p>
-                    <p>messages</p>
-                    <p>messages</p>
-                    <p>messages</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
+                    <p>chat</p>
                 </div>
             </Flex>
         </>
     )
 }
 
-export default Chat
+export default Chats

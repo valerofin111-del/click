@@ -1,12 +1,17 @@
 import { RouterProvider, type RouteObject, createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import __root from "./components/__root";
 import Welcome from "./components/Welcome";
 import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
-import MainPage from "./components/app/MainPage";
-import Chat from "./components/app/Chat";
-import Friends from "./components/app/Friends";
+
+var MainPage = lazy(() => import('./components/app/MainPage'));
+import Chats from "./components/app/Chats";
+import SearchFriends from "./components/app/SearchFriends";
 import Options from "./components/app/Options";
+
+import Error from "./components/fallback/Error";
+import Loading from "./components/fallback/Loading";
 
 var App = function () {
     
@@ -14,6 +19,7 @@ var App = function () {
         {
             path: '/',
             element: <__root/>,
+            errorElement: <Error />,
             children: [
                 {
                     index: true,
@@ -29,15 +35,15 @@ var App = function () {
                 },
                 {
                     path: 'app',
-                    element: <MainPage />,
+                    element: <Suspense fallback={Loading} ><MainPage /></Suspense>,
                     children: [
                         {
-                            path: 'chat',
-                            element: <Chat />
+                            path: 'chats',
+                            element: <Chats />
                         },
                         {
                             path: 'friends',
-                            element: <Friends />
+                            element: <SearchFriends />
                         },
                         {
                             path: 'options',
