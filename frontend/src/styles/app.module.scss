@@ -8,8 +8,6 @@
 }
 
 .Main {
-    @include t.Card;
-    width: 65%;
 
     div {
         
@@ -19,6 +17,47 @@
     }
 }
 
-.Clicker {
-    @include t.Card;
+.blueThemeNav {
+    @include  t.Text;
+    border: 2px solid t.$color-border-blue;
+    border-radius: 8px;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-blue;
+    font-size: 45px;
+}
+
+.greenThemeNav {
+    @include  t.Text;
+    border: 2px solid t.$color-border-green;
+    border-radius: 8px;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-green;
+    font-size: 45px;
+}
+
+.redThemeNav {
+    @include  t.Text;
+    border: 2px solid t.$color-border-red;
+    border-radius: 8px;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-red;
+    font-size: 45px;
+}
+
+.orangeThemeNav {
+    @include  t.Text;
+    border: 2px solid t.$color-border-orange;
+    border-radius: 8px;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-orange;
+    font-size: 45px;
+}
+
+.yellowThemeNav {
+    @include  t.Text;
+    border: 2px solid t.$color-border-yellow;
+    border-radius: 8px;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-yellow;
+    font-size: 45px;
 }

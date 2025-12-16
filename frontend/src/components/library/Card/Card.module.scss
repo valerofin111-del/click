@@ -1,0 +1,225 @@
+@use '../../../styles/templates.scss' as t;
+
+@mixin CardMain {
+    background-color: t.$color-card;
+    border-radius: 8px;
+    width: 65%;
+    height: 320px;
+    margin: 46px;
+    padding: 64px;
+    box-shadow: 2px 2px 1px 1px t.$color-settings;
+}
+
+@mixin Card {
+    background-color: t.$color-card;
+    border-radius: 8px;
+    width: 20%;
+    height: 320px;
+    margin: 46px;
+    padding: 64px;
+    box-shadow: 2px 2px 1px 1px t.$color-settings;
+}
+
+@mixin Button {
+    @include t.Text;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    width: 180px;
+    height: 60px;
+    background-color: t.$color-btn;
+    border-radius: 8px;
+    font-size: 32px;
+}
+
+@mixin Input {
+    @include t.Text;
+    background-color: white;
+    color: t.$color-settings;
+    width: 100%;
+    height: 24px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.blueTheme {
+    @include Card;
+    border: 2px solid t.$color-border-blue;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-blue;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-blue;
+        border: 2px solid t.$color-border-blue;
+        border-radius: 8px;
+    }
+}
+
+.greenTheme {
+    @include Card;
+    border: 2px solid t.$color-border-green;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-green;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-green;
+        border: 2px solid t.$color-border-green;
+        border-radius: 8px;
+    }
+}
+
+.redTheme {
+    @include Card;
+    border: 2px solid t.$color-border-red;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-red;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-red;
+        border: 2px solid t.$color-border-red;
+        border-radius: 8px;
+    }
+}
+
+.orangeTheme {
+    @include Card;
+    border: 2px solid t.$color-border-orange;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-orange;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-orange;
+        border: 2px solid t.$color-border-orange;
+        border-radius: 8px;
+    }
+}
+
+.yellowTheme {
+    @include Card;
+    border: 2px solid t.$color-border-yellow;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-yellow;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-yellow;
+        border: 2px solid t.$color-border-yellow;
+        border-radius: 8px;
+    }
+}
+
+// themeMain
+
+.blueThemeMain {
+    @include CardMain;
+    border: 2px solid t.$color-border-blue;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-blue;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-blue;
+        border: 2px solid t.$color-border-blue;
+        border-radius: 8px;
+    }
+}
+
+.greenThemeMain {
+    @include CardMain;
+    border: 2px solid t.$color-border-green;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-green;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-green;
+        border: 2px solid t.$color-border-green;
+        border-radius: 8px;
+    }
+}
+
+.redThemeMain {
+    @include CardMain;
+    border: 2px solid t.$color-border-red;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-red;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-red;
+        border: 2px solid t.$color-border-red;
+        border-radius: 8px;
+    }
+}
+
+.orangeThemeMain {
+    @include CardMain;
+    border: 2px solid t.$color-border-orange;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-orange;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-orange;
+        border: 2px solid t.$color-border-orange;
+        border-radius: 8px;
+    }
+}
+
+.yellowThemeMain {
+    @include CardMain;
+    border: 2px solid t.$color-border-yellow;
+
+    input {
+        @include Input;
+        border: 2px solid t.$color-border-yellow;
+        border-radius: 8px;
+    }
+
+    button {
+        @include Button;
+        color: t.$color-pick-yellow;
+        border: 2px solid t.$color-border-yellow;
+        border-radius: 8px;
+    }
+}
