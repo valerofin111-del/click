@@ -19,7 +19,9 @@
 
 .blueThemeNav {
     @include  t.Text;
-    border: 2px solid t.$color-border-blue;
+    border-left: 2px solid t.$color-border-blue;
+    border-right: 2px solid t.$color-border-blue;
+    border-bottom: 2px solid t.$color-border-blue;
     border-radius: 8px;
     background-color: t.$color-btn;
     color:  t.$color-pick-blue;
@@ -28,7 +30,9 @@
 
 .greenThemeNav {
     @include  t.Text;
-    border: 2px solid t.$color-border-green;
+    border-left: 2px solid t.$color-border-green;
+    border-right: 2px solid t.$color-border-green;
+    border-bottom: 2px solid t.$color-border-green;
     border-radius: 8px;
     background-color: t.$color-btn;
     color:  t.$color-pick-green;
@@ -37,7 +41,9 @@
 
 .redThemeNav {
     @include  t.Text;
-    border: 2px solid t.$color-border-red;
+    border-left: 2px solid t.$color-border-red;
+    border-right: 2px solid t.$color-border-red;
+    border-bottom: 2px solid t.$color-border-red;
     border-radius: 8px;
     background-color: t.$color-btn;
     color:  t.$color-pick-red;
@@ -46,7 +52,9 @@
 
 .orangeThemeNav {
     @include  t.Text;
-    border: 2px solid t.$color-border-orange;
+    border-left: 2px solid t.$color-border-orange;
+    border-right: 2px solid t.$color-border-orange;
+    border-bottom: 2px solid t.$color-border-orange;
     border-radius: 8px;
     background-color: t.$color-btn;
     color:  t.$color-pick-orange;
@@ -55,7 +63,9 @@
 
 .yellowThemeNav {
     @include  t.Text;
-    border: 2px solid t.$color-border-yellow;
+    border-left: 2px solid t.$color-border-yellow;
+    border-right: 2px solid t.$color-border-yellow;
+    border-bottom: 2px solid t.$color-border-yellow;
     border-radius: 8px;
     background-color: t.$color-btn;
     color:  t.$color-pick-yellow;
