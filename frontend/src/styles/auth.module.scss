@@ -1,91 +1,33 @@
 @use './templates.scss' as t;
 
-.AuthForm {
-    @include t.Card;
 
-    form {
-        
-        .name {
-            
-            h1 {
-                color: t.$color-pick;
-            }
+form {
 
-            input {
-                background-color: white;
-                color: black;
-                width: 100%;
-                height: 24px;
-                border: 2px solid t.$color-border;
-                border-radius: 8px;
-                font-family: "Pixelify Sans", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 900;
-                font-style: normal;
-                font-size: 20px;
-            }
-        }
+    .AuthButton {
+        margin-top: 32px;
+    }
 
-        .key {
-            
-            h1 {
-                color: t.$color-pick;
-            }
-
-            input {
-                background-color: white;
-                color: black;
-                width: 100%;
-                height: 24px;
-                border: 2px solid t.$color-border;
-                border-radius: 8px;
-                font-family: "Pixelify Sans", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 900;
-                font-style: normal;
-                font-size: 20px;
-            }
-        }
-
-        button {
-            margin-top: 32px;
-            margin-bottom: auto;
-            margin-right: auto;
-            margin-left: auto;
-            width: 180px;
-            height: 60px;
-            background-color: t.$color-btn;
-            color: t.$color-border;
-            border-radius: 8px;
-            border: 2px solid t.$color-border;
-            font-family: "Pixelify Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 900;
-            font-style: normal;
-            font-size: 32px;
-        }
-
-        .error {
-            color: t.$color-warning;
-            margin-top: 32px;
-            margin-bottom: auto;
-            margin-right: auto;
-            margin-left: auto;
-        }
+    .Error {
+        color: t.$color-warning;
+        margin-top: 32px;
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
 
+
 .Back {
-    text-decoration: none;
     display: flex;
     justify-content: center;
     font-size: 22px;
 
-    &:hover {
-        text-decoration: underline;
-    }
-
     .Link {
         color: t.$color-settings;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

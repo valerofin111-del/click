@@ -2,14 +2,17 @@ import { Flex } from '@radix-ui/themes'
 import styles from '../../styles/app.module.scss'
 import { motion } from 'motion/react'
 import { Outlet } from 'react-router-dom'
-import Card from '../library/Card'
+import Card from '../library/Card/Card'
 import PickText from '../library/PickText/PickText'
 import { useAtomValue } from 'jotai'
 import themeAtom from '../../atoms/themeAtom'
+import Nav from './Nav'
 
 var MainPage = () => {
 
     var theme = useAtomValue(themeAtom)
+    var themeMain = theme + 'Main'
+    var themeNav = theme + 'Nav'
 
     return (
     <>
@@ -21,12 +24,14 @@ var MainPage = () => {
 
         <Flex justify={'center'} direction={'row'} >
 
-            <Card className={styles.Main}>
+            <Card className={themeMain}>
                 <Outlet />
             </Card>
 
-            <Card className={styles.Clicker} >
-                
+            <Card className={theme} >
+
+                <Nav className={themeNav} />
+
                 <Flex justify={'center'}>
                     <PickText className={theme}>Click!</PickText>
                 </Flex>

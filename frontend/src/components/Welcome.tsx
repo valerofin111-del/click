@@ -2,18 +2,24 @@ import { Link } from "react-router-dom"
 import { motion } from "motion/react"
 import styles from '../styles/welcome.module.scss'
 import { Flex } from "@radix-ui/themes"
-import Card from "./library/Card";
+import Card from "./library/Card/Card";
+import themeAtom from "../atoms/themeAtom";
+import { useAtomValue } from "jotai";
+import PickText from "./library/PickText/PickText";
 
 var Welcome = function () {
+
+    var theme = useAtomValue(themeAtom)
+
     return (
         <Flex justify='center'>
-            <Card className={styles.Welcome} >
-                <motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }} >Welcome to <span className={styles.Title} >Click</span></motion.h1>
-                
-                <motion.div className={styles.Nav} >
-                    <Link to='reg' className={styles.Link} >Reg</Link>
-                    <Link to='log' className={styles.Link} >Log</Link>
-                </motion.div>
+            <Card className={theme} >
+                    <PickText className={theme} >Click</PickText>
+                    
+                    <motion.div className={styles.Nav} >
+                        <Link to='reg' className={styles.Link} >Reg</Link>
+                        <Link to='log' className={styles.Link} >Log</Link>
+                    </motion.div>
             </Card>
         </Flex>
     )

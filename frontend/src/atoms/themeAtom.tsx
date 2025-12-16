@@ -1,7 +1,7 @@
-import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
 export type themeOptions = 'blueTheme' | 'greenTheme' | 'redTheme' | 'orangeTheme' | 'yellowTheme'
 
-var themeAtom = atom<themeOptions>('blueTheme')
+var themeAtom = atomWithStorage<themeOptions>('theme', 'blueTheme')
 
 export default themeAtom

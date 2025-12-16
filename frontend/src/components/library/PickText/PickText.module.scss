@@ -1,21 +1,31 @@
 @use '../../../styles/templates.scss' as t;
 
+@mixin PickText {
+    display: flex;
+    justify-content: center;
+}
+
 .blueTheme {
+    @include PickText();
     color: t.$color-pick-blue;
 }
 
 .greenTheme {
+    @include PickText();
     color: t.$color-pick-green;
 }
 
 .redTheme {
+    @include PickText();
     color: t.$color-pick-red;
 }
 
 .orangeTheme {
+    @include PickText();
     color: t.$color-pick-orange;
 }
 
 .yellowTheme {
+    @include PickText();
     color: t.$color-pick-yellow
 }

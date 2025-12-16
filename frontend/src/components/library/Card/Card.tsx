@@ -1,5 +1,6 @@
 import { motion } from "motion/react"
 import { type ReactNode } from "react"
+import styles from './Card.module.scss'
 
 interface CardProps {
     children: ReactNode,
@@ -9,7 +10,7 @@ interface CardProps {
 var Card = (
     ({children, className} : CardProps ) => {
         return (
-            <motion.div className={className} initial={{ opacity: 0, transition: { duration: 0.1 } }} animate={{ opacity: 1 }} >
+            <motion.div className={styles[className]} initial={{ opacity: 0, transition: { duration: 0.1 } }} animate={{ opacity: 1 }} >
                 {children}
             </motion.div>
         )

@@ -30,7 +30,7 @@ var Options = function () {
                     <PickText className={theme}>Options</PickText>
                 </Flex>
 
-                <button onClick={newTheme} >Click to change theme</button>
+                <button onClick={newTheme} >Theme</button>
             </Flex>
         </>
     )

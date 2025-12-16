@@ -1,36 +1,19 @@
 @use './templates.scss' as t;
 
-.Welcome {
-    @include t.Card;
+.Nav {
+    margin-top: 78px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
 
-    h1 {
-        font-size: 26px;
-        display: flex;
-        justify-content: center;
-        gap: 6px
-    }
+    .Link {
+        text-decoration: none;
+        color: t.$color-text;
+        font-size: 32px;
 
-    .Title {
-        color: t.$color-pick;
-        font-size: 26px;
-    }
-
-    .Nav {
-        margin-top: 78px;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        gap: 40px;
-
-        .Link {
-            text-decoration: none;
-            color: t.$color-pick;
-            font-size: 32px;
-
-            &:hover {
-                text-decoration: underline;
-            }
+        &:hover {
+            text-decoration: underline;
         }
-        
     }
 }
