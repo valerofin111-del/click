@@ -1,11 +1,19 @@
 // import { motion } from "motion/react"
-// import { Flex } from "@radix-ui/themes"
+import { Flex } from "@radix-ui/themes"
 // import styles from '../../styles/app.module.scss'
+import PickText from "../library/PickText/PickText"
+import themeAtom from "../../atoms/themeAtom"
+import { useAtomValue } from "jotai"
 
 var FindFriends = () => {
+
+    var theme = useAtomValue(themeAtom)
+
     return (
         <>
-            <h1>Find friends:</h1>
+            <Flex justify={'center'}>
+                <PickText className={theme} >Possible friends</PickText>
+            </Flex>
         </>
     )
 }
