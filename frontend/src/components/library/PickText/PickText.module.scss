@@ -3,6 +3,7 @@
 @mixin PickText {
     display: flex;
     justify-content: center;
+    text-decoration: underline;
 }
 
 .blueTheme {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { motion } from "motion/react"
 import styles from '../styles/welcome.module.scss'
-import { Flex } from "@radix-ui/themes"
+import { Flex} from "@radix-ui/themes"
 import Card from "./library/Card/Card";
 import themeAtom from "../atoms/themeAtom";
 import { useAtomValue } from "jotai";

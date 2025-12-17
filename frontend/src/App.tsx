@@ -6,9 +6,9 @@ import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
 
 var MainPage = lazy(() => import('./components/app/MainPage'));
-import Chats from "./components/app/Chats";
-import SearchFriends from "./components/app/SearchFriends";
-import Options from "./components/app/Options";
+import Chats from "./components/app/mainCard/Chats";
+import SearchFriends from "./components/app/mainCard/SearchFriends";
+import Options from "./components/app/mainCard/Options";
 
 import Error from "./components/fallback/Error";
 import Loading from "./components/fallback/Loading";

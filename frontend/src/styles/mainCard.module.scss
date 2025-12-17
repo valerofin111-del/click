@@ -1,0 +1,42 @@
+@use './templates.scss' as t;
+
+@mixin WarnBtn {
+    border-radius: 8px;
+    height: 48px;
+    width: 40%;
+    padding-top: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    
+    h1 {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+.Account {
+    margin-top: 34px;
+
+    .Email {
+        display: flex;
+        justify-content: center;
+    }
+
+    .Actions {
+
+        .Leave {
+            @include WarnBtn;
+            border: 2px solid t.$color-warning;
+            background-color: t.$color-btn;
+            color: t.$color-warning;
+        }
+
+        .ChangeKey {
+            @include WarnBtn;
+            border: 2px solid t.$color-action;
+            background-color: t.$color-btn;
+            color: t.$color-action;
+        }
+    }
+}

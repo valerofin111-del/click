@@ -3,17 +3,27 @@ import { Outlet } from 'react-router-dom'
 import Card from '../library/Card/Card'
 import { useAtomValue } from 'jotai'
 import themeAtom from '../../atoms/themeAtom'
-import Nav from './Nav'
+import Nav from './clickerCard/Nav'
 import styles from '../../styles/app.module.scss'
-import Clicker from './Clicker'
+import Clicker from './clickerCard/Clicker'
+import { useState } from 'react'
 
 var MainPage = () => {
 
     var theme = useAtomValue(themeAtom)
-    var themeMain = theme + 'Main'
-    var themeNav = theme + 'Nav'
-    var themeClicker = theme + 'Clicker'
+    var themeMain = `${theme}Main`
 
+    var [ clicks, setClicks ] = useState<number>(0)
+    var [ cycle, setCycle ] = useState<number>(0)
+
+    var click = () => {
+        if (clicks === 9) {
+            setClicks(prev => prev * 0)
+            setCycle(prev => prev + 1)
+        } else {
+            setClicks(prev => (prev + 1)) 
+        }
+    }
     return (
     <>
         <Flex className={styles.App} justify={'center'} >
@@ -23,11 +33,12 @@ var MainPage = () => {
             </Card>
 
             <Card className={theme} >
+                <Nav className={theme} />
 
-                <Nav className={themeNav} />
+                <Clicker className={theme} clicks={clicks} onClick={click} />
 
-                <Clicker className={themeClicker} />
-
+                <p>Clicks: {clicks} </p>
+                <p>Cycle: {cycle} </p>
             </Card>
         </Flex>
     </>

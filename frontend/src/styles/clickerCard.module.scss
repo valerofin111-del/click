@@ -1,0 +1,124 @@
+@use './templates.scss' as t;
+
+@mixin Nav {
+    @include  t.Text;
+    border-radius: 8px;
+    font-size: 45px;
+}
+
+.blueThemeNav {
+    @include Nav;
+    border-left: 2px solid t.$color-border-blue;
+    border-right: 2px solid t.$color-border-blue;
+    border-bottom: 2px solid t.$color-border-blue;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-blue;
+}
+
+.greenThemeNav {
+    @include Nav;
+    border-left: 2px solid t.$color-border-green;
+    border-right: 2px solid t.$color-border-green;
+    border-bottom: 2px solid t.$color-border-green;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-green;
+}
+
+.redThemeNav {
+    @include Nav;
+    border-left: 2px solid t.$color-border-red;
+    border-right: 2px solid t.$color-border-red;
+    border-bottom: 2px solid t.$color-border-red;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-red;
+}
+
+.orangeThemeNav {
+    @include Nav;
+    border-left: 2px solid t.$color-border-orange;
+    border-right: 2px solid t.$color-border-orange;
+    border-bottom: 2px solid t.$color-border-orange;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-orange;
+}
+
+.yellowThemeNav {
+    @include Nav;
+    border-left: 2px solid t.$color-border-yellow;
+    border-right: 2px solid t.$color-border-yellow;
+    border-bottom: 2px solid t.$color-border-yellow;
+    background-color: t.$color-btn;
+    color:  t.$color-pick-yellow;
+}
+
+@mixin Clicker {
+    margin-top: 48px;
+    border-radius: 50%;
+    background-color: t.$color-btn;
+    height: 180px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+@mixin Indicator {
+    height: 180px;
+    border-radius: 50%;
+}
+
+.blueThemeClicker {
+    @include Clicker;
+    background-color: t.$color-btn;
+
+    .blueThemeIndicator {
+        @include Indicator;
+        background-color: t.$color-pick-blue;
+        border: 2px solid t.$color-border-blue;
+    }
+}
+
+.greenThemeClicker {
+    @include Clicker;
+    background-color: t.$color-btn;
+
+    .greenThemeIndicator {
+        @include Indicator;
+        background-color: t.$color-pick-green;
+        border: 2px solid t.$color-border-green;
+    }
+}
+
+.redThemeClicker {
+    @include Clicker;
+    background-color: t.$color-btn;
+
+    .redThemeIndicator {
+        @include Indicator;
+        background-color: t.$color-pick-red;
+        border: 2px solid t.$color-border-red;
+    }
+}
+
+.orangeThemeClicker {
+    @include Clicker;
+    background-color: t.$color-btn;
+
+    .orangeThemeIndicator {
+        @include Indicator;
+        background-color: t.$color-pick-orange;
+        border: 2px solid t.$color-border-orange;
+    }
+}
+
+.yellowThemeClicker {
+    @include Clicker;
+    background-color: t.$color-btn;
+
+    .yellowThemeIndicator {
+        @include Indicator;
+        background-color: t.$color-pick-yellow;
+        border: 2px solid t.$color-border-yellow;
+    }
+}
