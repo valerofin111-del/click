@@ -13,8 +13,7 @@ datasource db {
 }
 
 model User {
-  id          String       @id @default(uuid())
-  name        String
+  name        String       @id
   key         String
   email       String?      @unique
   cycles      Int          @default(0)
@@ -25,16 +24,16 @@ model User {
 }
 
 model Friendship {
-  id       String @id @default(uuid())
-  user1_Id String
-  user2_Id String
-  user1    User   @relation("friend1", fields: [user1_Id], references: [id])
-  user2    User   @relation("friend2", fields: [user2_Id], references: [id])
-  chat     Chat?  @relation("friendship")
+  id         String @id @default(uuid())
+  user1      User   @relation("friend1", fields: [user1_name], references: [name])
+  user2      User   @relation("friend2", fields: [user2_name], references: [name])
+  user1_name String
+  user2_name String
+  chat       Chat?  @relation("friendship")
 
-  @@unique([user1_Id, user2_Id])
-  @@index([user1_Id])
-  @@index([user2_Id])
+  @@unique([user1_name, user2_name])
+  @@index([user1_name])
+  @@index([user2_name])
 }
 
 model Chat {
@@ -50,11 +49,11 @@ model Message {
   id         String   @id @default(uuid())
   chat       Chat     @relation("chat", fields: [chat_Id], references: [id], onDelete: Cascade)
   chat_Id    String
-  user       User     @relation("messages", fields: [user_Id], references: [id])
-  user_Id    String
+  user       User     @relation("messages", fields: [user_name], references: [name])
+  user_name  String
   content    String
   created_At DateTime @default(now())
 
   @@index([chat_Id])
-  @@index([user_Id])
+  @@index([user_name])
 }

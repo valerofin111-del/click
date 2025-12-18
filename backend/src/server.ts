@@ -9,12 +9,14 @@ import 'dotenv/config'
 
 // --> Routes
 import userRoutes from './routes/user.js'
+import friendsRoutes from './routes/friends.js'
 // <-- Routes
 
 // Prisma -->
 import { PrismaClient } from '@prisma/client'
 import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
+import friendRoutes from './routes/friends.js'
 
 declare module 'fastify' {
     interface FastifyInstance {
@@ -57,6 +59,7 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
     })
 
     await fastify.register(userRoutes)
+    await fastify.register(friendsRoutes)
 
     return fastify
 }

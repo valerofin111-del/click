@@ -1,7 +1,17 @@
-POST http://localhost:5000/user/create HTTP/1.1
+# POST http://localhost:5000/user/create HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "name": "valerofin",
+#     "key": 123
+# }
+
+# GET http://localhost:5000/friends?search=val HTTP/1.1
+
+POST http://localhost:5000/friends/make HTTP/1.1
 Content-Type: application/json
 
 {
     "name": "valerofin",
-    "key": 123
+    "friend_name": "valero"
 }
