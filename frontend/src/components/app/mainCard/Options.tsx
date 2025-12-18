@@ -35,6 +35,7 @@ var Options = function () {
 
                 <Flex className={styles.Account} justify={'center'} direction={'column'} >
                     
+                    <h1 className={styles.Name}>{'UserName'} </h1>
                     <h1 className={styles.Email} >{'user@example.com'} </h1>
 
                     <Flex className={styles.Actions} justify={'center'}  direction={'row'} >

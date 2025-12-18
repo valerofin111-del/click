@@ -68,3 +68,5 @@ docker-compose.override.yml
 /uploads/
 /temp/
 /cache/
+
+/src/generated/prisma

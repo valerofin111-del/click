@@ -16,7 +16,11 @@
 }
 
 .Account {
-    margin-top: 34px;
+
+    .Name {
+        display: flex;
+        justify-content: center;
+    }
 
     .Email {
         display: flex;

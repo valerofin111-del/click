@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id          String       @id @default(uuid())
+  name        String
+  key         String
+  email       String?      @unique
+  cycles      Int          @default(0)
+  friendUser1 Friendship[] @relation("friend1")
+  friendUser2 Friendship[] @relation("friend2")
+  messages    Message[]    @relation("messages")
+  created_At  DateTime     @default(now())
+}
+
+model Friendship {
+  id       String @id @default(uuid())
+  user1_Id String
+  user2_Id String
+  user1    User   @relation("friend1", fields: [user1_Id], references: [id])
+  user2    User   @relation("friend2", fields: [user2_Id], references: [id])
+  chat     Chat?  @relation("friendship")
+
+  @@unique([user1_Id, user2_Id])
+  @@index([user1_Id])
+  @@index([user2_Id])
+}
+
+model Chat {
+  id            String     @id @default(ulid())
+  friendship    Friendship @relation("friendship", fields: [friendship_Id], references: [id], onDelete: Cascade)
+  friendship_Id String     @unique
+  messages      Message[]  @relation("chat")
+
+  @@index([friendship_Id])
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  chat       Chat     @relation("chat", fields: [chat_Id], references: [id], onDelete: Cascade)
+  chat_Id    String
+  user       User     @relation("messages", fields: [user_Id], references: [id])
+  user_Id    String
+  content    String
+  created_At DateTime @default(now())
+
+  @@index([chat_Id])
+  @@index([user_Id])
+}
