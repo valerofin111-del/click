@@ -9,6 +9,8 @@ import Card from "../library/Card/Card";
 import PickText from "../library/PickText/PickText";
 import themeAtom from "../../atoms/themeAtom";
 import { useAtomValue } from "jotai";
+import { useMutation } from "@tanstack/react-query";
+import axios from 'axios'
 
 var formSchema = z.object({
     name: z.string().min(3).max(20),
@@ -30,8 +32,14 @@ var RegPage = function () {
     mode: 'onBlur'
   })
 
-  const sendForm = function(data: Form) {
-    console.log(data) // query
+  var mutation = useMutation({
+    mutationFn: (data) => axios.post('http://localhost:5000/user/create', data),
+    onSuccess: (response) => console.info(response.data),
+    onError: (e) => console.error(e)
+  })
+
+  var sendForm = function(data: Form) {
+    mutation.mutate(data)
   }
 
   return (
