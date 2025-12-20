@@ -27,6 +27,7 @@ var Card = (
                 rotateX: valueX,
                 rotateY: valueY 
             }, { duration: 0.1 } )
+
         }
 
         var mouseLeave = (): void => {
@@ -38,12 +39,12 @@ var Card = (
 
         return (
             <motion.div className={styles[className]}
-                ref={coords}
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }}
-                onMouseMove={mouseMove}
-                onMouseLeave={mouseLeave}
-                style={{ transformStyle: 'preserve-3d' }}
+                    ref={coords}
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }}
+                    onMouseMove={mouseMove}
+                    onMouseLeave={mouseLeave}
+                    style={{ transformStyle: 'preserve-3d' }}
                 >
                 {children}
             </motion.div>
