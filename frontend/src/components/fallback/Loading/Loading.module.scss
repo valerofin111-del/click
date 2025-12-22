@@ -1,0 +1,5 @@
+@use '../../../styles/templates.scss' as t;
+
+.Title {
+    color: t.$color-action
+}

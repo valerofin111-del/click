@@ -45,7 +45,7 @@ var RegPage = function () {
   return (
     <>
       <Flex justify={"center"}>
-        <Card className={theme} >
+        <Card className={theme} mouseRotate={false} >
 
             <form onSubmit={handleSubmit(sendForm)}>
                 <Flex justify={"center"} direction={"column"}>

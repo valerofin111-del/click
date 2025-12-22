@@ -4,11 +4,12 @@ import styles from './Card.module.scss'
 
 interface CardProps {
     children: ReactNode,
-    className: string
+    className: string,
+    mouseRotate: boolean
 }
 
 var Card = (
-    ({children, className} : CardProps ) => {
+    ({children, className, mouseRotate} : CardProps ) => {
 
         var [ coords, animate ] = useAnimate<HTMLDivElement>()
 
@@ -20,8 +21,10 @@ var Card = (
             var x = e.clientX - rect.left
             var y = e.clientY - rect.top
 
-            var valueX = (x / rect.width) * 12 - 6
-            var valueY = (y / rect.height) * 12 - 6
+            var ifRotateNum = mouseRotate ? 1 : 0
+
+            var valueX = ((x / rect.width) * 12 - 6) * ifRotateNum
+            var valueY = ((y / rect.height) * 12 - 6) * ifRotateNum
 
             animate(coords.current, {
                 rotateX: valueX,

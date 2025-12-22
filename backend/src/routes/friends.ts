@@ -58,7 +58,7 @@ var friendsMake = {
 
 var friendsRoutes = function ( fastify, options, done ) {
 
-    fastify.get('/friends', friendsFind)
+    fastify.get('/friends/find', friendsFind)
 
     fastify.post('/friends/make', friendsMake)
 

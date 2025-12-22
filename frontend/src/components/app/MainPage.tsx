@@ -28,11 +28,11 @@ var MainPage = () => {
     <>
         <Flex className={styles.App} justify={'center'} >
 
-            <Card className={themeMain}>
+            <Card className={themeMain} mouseRotate={true} >
                 <Outlet />
             </Card>
 
-            <Card className={theme} >
+            <Card className={theme} mouseRotate={false} >
                 <Nav className={theme} />
 
                 <Clicker className={theme} clicks={clicks} onClick={click} />
