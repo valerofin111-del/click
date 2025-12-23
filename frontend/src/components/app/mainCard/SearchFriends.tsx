@@ -48,7 +48,13 @@ var SearchFriends = () => {
                     </Flex>
                 )}
 
-                {isError && (
+                {search.length === 1 && isError && (
+                    <Flex justify={'center'}>
+                        <h1>Try to find friends</h1>
+                    </Flex>
+                )}
+
+                {isError && !search.length === 1 && (
                     <Flex justify={'center'}>
                         <Error />
                     </Flex>

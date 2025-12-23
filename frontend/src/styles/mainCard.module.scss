@@ -16,6 +16,7 @@
 }
 
 .Account {
+    margin-top: 42px;
 
     .Name {
         display: flex;
@@ -42,5 +43,120 @@
             background-color: t.$color-btn;
             color: t.$color-action;
         }
+    }
+}
+
+@mixin optionsButtonLeft {
+    @include t.Text;
+    height: 48px;
+    width: 120px;
+    border-radius: 8px;
+    border-right: 0;
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0; 
+}
+
+@mixin optionsButtonRight {
+    @include t.Text;
+    height: 48px;
+    width: 120px;
+    border-radius: 8px;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; 
+}
+
+.VisualOptions {
+    margin-top: 4px;
+
+    .blueThemeLeftBtn {
+        @include optionsButtonLeft;
+        background-color: t.$color-btn;
+        color: t.$color-pick-blue;
+        border-top: 2px solid t.$color-border-blue;
+        border-left: 2px solid t.$color-border-blue;
+        border-bottom: 2px solid t.$color-border-blue;
+    }
+
+    .blueThemeRightBtn {
+        @include optionsButtonRight;
+        background-color: t.$color-btn;
+        color: t.$color-pick-blue;
+        border-top: 2px solid t.$color-border-blue;
+        border-right: 2px solid t.$color-border-blue;
+        border-bottom: 2px solid t.$color-border-blue;
+    }
+
+    .greenThemeLeftBtn {
+        @include optionsButtonLeft;
+        background-color: t.$color-btn;
+        color: t.$color-pick-green;
+        border-top: 2px solid t.$color-border-green;
+        border-left: 2px solid t.$color-border-green;
+        border-bottom: 2px solid t.$color-border-green;
+    }
+
+    .greenThemeRightBtn {
+        @include optionsButtonRight;
+        background-color: t.$color-btn;
+        color: t.$color-pick-green;
+        border-top: 2px solid t.$color-border-green;
+        border-right: 2px solid t.$color-border-green;
+        border-bottom: 2px solid t.$color-border-green;
+    }
+
+    .redThemeLeftBtn {
+        @include optionsButtonLeft;
+        background-color: t.$color-btn;
+        color: t.$color-pick-red;
+        border-top: 2px solid t.$color-border-red;
+        border-left: 2px solid t.$color-border-red;
+        border-bottom: 2px solid t.$color-border-red;
+    }
+
+    .redThemeRightBtn {
+        @include optionsButtonRight;
+        background-color: t.$color-btn;
+        color: t.$color-pick-red;
+        border-top: 2px solid t.$color-border-red;
+        border-right: 2px solid t.$color-border-red;
+        border-bottom: 2px solid t.$color-border-red;
+    }
+
+    .orangeThemeLeftBtn {
+        @include optionsButtonLeft;
+        background-color: t.$color-btn;
+        color: t.$color-pick-orange;
+        border-top: 2px solid t.$color-border-orange;
+        border-left: 2px solid t.$color-border-orange;
+        border-bottom: 2px solid t.$color-border-orange;
+    }
+
+    .orangeThemeRightBtn {
+        @include optionsButtonRight;
+        background-color: t.$color-btn;
+        color: t.$color-pick-orange;
+        border-top: 2px solid t.$color-border-orange;
+        border-right: 2px solid t.$color-border-orange;
+        border-bottom: 2px solid t.$color-border-orange;
+    }
+
+    .yellowThemeLeftBtn {
+        @include optionsButtonLeft;
+        background-color: t.$color-btn;
+        color: t.$color-pick-yellow;
+        border-top: 2px solid t.$color-border-yellow;
+        border-left: 2px solid t.$color-border-yellow;
+        border-bottom: 2px solid t.$color-border-yellow;
+    }
+
+
+    .yellowThemeRightBtn {
+        @include optionsButtonRight;
+        background-color: t.$color-btn;
+        color: t.$color-pick-yellow;
+        border-top: 2px solid t.$color-border-yellow;
+        border-right: 2px solid t.$color-border-yellow;
+        border-bottom: 2px solid t.$color-border-yellow;
     }
 }

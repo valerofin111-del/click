@@ -23,7 +23,7 @@ var Nav = (
                         <Select.Portal>
                             <AnimatePresence>
                                 <Select.Content className={styles[themeNav]} position='popper' asChild>
-                                    <motion.div initial={{ scaleY: 0, transition: { duration: 0.05 }, transformOrigin: 'top center' }} animate={{ scaleY: 1 }} >
+                                    <motion.div initial={{ scaleY: 0, transformOrigin: 'top center' }} animate={{ scaleY: 1 }} >
                                         <Select.Viewport>
                                             <Select.Group>
                                                 <Select.Item value='chats'><motion.div initial={{ opacity: 0.7 }} whileHover={{ opacity: 1 }} whileTap={{ opacity: 0, transition: { duration: 0.1 } }} >Chats</motion.div></Select.Item>
