@@ -2,7 +2,7 @@ import { Flex } from '@radix-ui/themes'
 import { Outlet } from 'react-router-dom'
 import Card from '../library/Card/Card'
 import { useAtomValue } from 'jotai'
-import themeAtom from '../../atoms/themeAtom'
+import colorThemeAtom from '../../atoms/colorThemeAtom'
 import Nav from './clickerCard/Nav'
 import stylesMain from '../../styles/app.module.scss'
 import Clicker from './clickerCard/Clicker'
@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 var MainPage = () => {
 
-    var theme = useAtomValue(themeAtom)
+    var theme = useAtomValue(colorThemeAtom)
     var themeMain = `${theme}Main`
 
     var [ clicks, setClicks ] = useState<number>(0)

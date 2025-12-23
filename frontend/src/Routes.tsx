@@ -1,6 +1,8 @@
 import { RouterProvider, type RouteObject, createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import __root from "./components/__root";
+
+import Root from "./components/Root";
+
 import Welcome from "./components/Welcome";
 import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
@@ -13,12 +15,12 @@ import Options from "./components/app/mainCard/Options";
 import Error from "./components/fallback/Error/Error";
 import Loading from "./components/fallback/Loading/Loading";
 
-var App = function () {
+var Routes = function () {
     
     var routerCfg = [
         {
             path: '/',
-            element: <__root/>,
+            element: <Root/>,
             errorElement: <Error />,
             children: [
                 {
@@ -62,4 +64,4 @@ var App = function () {
     )
 }
 
-export default App
+export default Routes

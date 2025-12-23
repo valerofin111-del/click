@@ -7,7 +7,7 @@ import { Flex } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
 import Card from "../library/Card/Card";
 import PickText from "../library/PickText/PickText";
-import themeAtom from "../../atoms/themeAtom";
+import colorThemeAtom from "../../atoms/colorThemeAtom";
 import { useAtomValue } from "jotai";
 
 var formSchema = z.object({
@@ -19,7 +19,7 @@ type Form = z.infer<typeof formSchema>
 
 var LogPage = function () {
 
-  var theme = useAtomValue(themeAtom)
+  var theme = useAtomValue(colorThemeAtom)
 
   var { register, handleSubmit, formState: { isSubmitting, errors } } = useForm<Form>({
     resolver: zodResolver(formSchema),
@@ -75,7 +75,7 @@ var LogPage = function () {
         </Card>
       </Flex>
 
-      <motion.span className={styles.Back} initial={{ y: 120 }} animate={{ y: 0 }} ><Link className={styles.Link} to='/'>Back</Link></motion.span>
+      <motion.span className={styles.Back} initial={{ y: 120 }} animate={{ y: -20 }} ><Link className={styles.Link} to='/'>Back</Link></motion.span>
     </>
   )
 }

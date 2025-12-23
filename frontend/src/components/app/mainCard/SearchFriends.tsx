@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { Flex } from "@radix-ui/themes"
 import PickText from "../../library/PickText/PickText"
-import themeAtom from "../../../atoms/themeAtom"
+import colorThemeAtom from "../../../atoms/colorThemeAtom"
 import { useAtomValue } from "jotai"
 import { useQuery } from "@tanstack/react-query"
 import Error from "../../fallback/Error/Error"
@@ -31,7 +31,7 @@ var SearchFriends = () => {
         enabled: debouncedSearch.length > 0
     })
 
-    var theme = useAtomValue(themeAtom)
+    var theme = useAtomValue(colorThemeAtom)
 
     return (
         <>
@@ -40,9 +40,9 @@ var SearchFriends = () => {
             </Flex>
 
             <Flex justify={'center'} direction={'column'} 
-                style={{ overflowY: 'auto', height: '220px', border: '2px solid hsl(0, 0%, 5%)', borderRadius: '8px', boxShadow: '2px 2px 1px 1px hsl(0, 0%, 5%)' }} 
+                style={{ overflowY: 'auto', height: '310px', border: '2px solid hsl(0, 0%, 5%)', borderRadius: '8px', boxShadow: '2px 2px 1px 1px hsl(0, 0%, 5%)' }} 
             >
-                {search.length === 0 && (
+                {search.length === 0 && !isError && (
                     <Flex justify={'center'}>
                         <h1>Try to find friends</h1>
                     </Flex>

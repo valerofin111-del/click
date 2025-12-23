@@ -1,14 +1,14 @@
 import { Flex } from "@radix-ui/themes"
 import { motion } from "motion/react"
 import { useAtom, useSetAtom } from "jotai"
-import themeAtom from "../../../atoms/themeAtom"
+import colorThemeAtom from "../../../atoms/colorThemeAtom"
 import styles from "../../../styles/mainCard.module.scss"
 import PickText from "../../library/PickText/PickText"
 import cardThemeAtom from "../../../atoms/cardThemeAtom"
 
 var Options = function () {
 
-    var [ buttonTheme, setButtonTheme ] = useAtom(themeAtom)
+    var [ buttonTheme, setButtonTheme ] = useAtom(colorThemeAtom)
     var setCardTheme = useSetAtom(cardThemeAtom)
 
 

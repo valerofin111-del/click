@@ -3,7 +3,7 @@
 @mixin CardMain {
     border-radius: 8px;
     width: 65%;
-    height: 320px;
+    height: 400px;
     margin: 46px;
     padding: 64px;
     box-shadow: 2px 2px 1px 1px t.$color-settings;
@@ -12,7 +12,7 @@
 @mixin Card {
     border-radius: 8px;
     width: 20%;
-    height: 320px;
+    height: 400px;
     margin: 46px;
     padding: 64px;
     box-shadow: 2px 2px 1px 1px t.$color-settings;

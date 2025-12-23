@@ -26,7 +26,7 @@ var Card = (
             var ifRotateNum = mouseRotate ? 1 : 0
 
             var valueX = ((x / rect.width) * 12 - 6) * ifRotateNum
-            var valueY = ((y / rect.height) * 12 - 6) * ifRotateNum
+            var valueY = -((y / rect.height) * 12 - 6) * ifRotateNum
 
             animate(coords.current, {
                 rotateX: valueX,

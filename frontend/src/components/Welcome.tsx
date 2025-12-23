@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 import styles from '../styles/welcome.module.scss'
 import { Flex} from "@radix-ui/themes"
 import Card from "./library/Card/Card";
-import themeAtom from "../atoms/themeAtom";
+import themeAtom from "../atoms/colorThemeAtom";
 import { useAtomValue } from "jotai";
 import PickText from "./library/PickText/PickText";
 
