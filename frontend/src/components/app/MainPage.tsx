@@ -4,7 +4,7 @@ import Card from '../library/Card/Card'
 import { useAtomValue } from 'jotai'
 import themeAtom from '../../atoms/themeAtom'
 import Nav from './clickerCard/Nav'
-import styles from '../../styles/app.module.scss'
+import stylesMain from '../../styles/app.module.scss'
 import Clicker from './clickerCard/Clicker'
 import { useState } from 'react'
 
@@ -26,9 +26,9 @@ var MainPage = () => {
     }
     return (
     <>
-        <Flex className={styles.App} justify={'center'} >
+        <Flex className={stylesMain.App} justify={'center'} >
 
-            <Card className={themeMain} mouseRotate={true} >
+            <Card className={themeMain} isDarkTheme={true} mouseRotate={true} >
                 <Outlet />
             </Card>
 

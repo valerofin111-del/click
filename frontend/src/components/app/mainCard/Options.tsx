@@ -1,16 +1,19 @@
 import { Flex } from "@radix-ui/themes"
 import { motion } from "motion/react"
-import { useAtom } from "jotai"
+import { useAtom, useSetAtom } from "jotai"
 import themeAtom from "../../../atoms/themeAtom"
 import styles from "../../../styles/mainCard.module.scss"
 import PickText from "../../library/PickText/PickText"
+import cardThemeAtom from "../../../atoms/cardThemeAtom"
 
 var Options = function () {
 
-    var [ theme, setTheme ] = useAtom(themeAtom)
+    var [ buttonTheme, setButtonTheme ] = useAtom(themeAtom)
+    var setCardTheme = useSetAtom(cardThemeAtom)
 
-    var newTheme = () => {
-        setTheme(prev => {
+
+    var newButtonTheme = () => {
+        setButtonTheme(prev => {
             switch(prev) {
                 case 'blueTheme': return 'greenTheme';
                 case 'greenTheme': return 'redTheme';
@@ -23,15 +26,28 @@ var Options = function () {
         })
     }
 
+    var newCardTheme = () => {
+        setCardTheme(prev => {
+            switch(prev) {
+                case 'hsla(0, 0%, 20%, 1.00)': return 'hsla(0, 0%, 60%, 1.00)';
+                case 'hsla(0, 0%, 60%, 1.00)': return 'hsla(0, 0%, 20%, 1.00)';
+                default: return 'hsla(0, 0%, 20%, 1.00)';
+            }
+        })
+    }
+
     return (
         <>
             <Flex justify={'center'} direction={'column'} style={{}} >
 
                 <Flex justify={'center'}>
-                    <PickText className={theme}>Options</PickText>
+                    <PickText className={buttonTheme}>Options</PickText>
                 </Flex>
 
-                <motion.button onClick={newTheme} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >Theme</motion.button>
+                <Flex direction={'row'} justify={'center'}  >
+                    <motion.button onClick={newCardTheme} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >Theme</motion.button>
+                    <motion.button onClick={newButtonTheme} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >Color</motion.button>
+                </Flex>
 
                 <Flex className={styles.Account} justify={'center'} direction={'column'} >
                     

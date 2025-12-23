@@ -53,19 +53,19 @@
 
 @mixin Clicker {
     margin-top: 48px;
-    border-radius: 50%;
+    border-radius: 48px;
     background-color: t.$color-btn;
     height: 180px;
     width: 180px;
     margin-left: auto;
     margin-right: auto;
-    align-items: center;
-    justify-items: center;
+    padding: auto;
 }
 
 @mixin Indicator {
     height: 180px;
-    border-radius: 50%;
+    border-radius: 48px;
+    background-color: t.$color-bg;
 }
 
 .blueThemeClicker {
@@ -74,7 +74,6 @@
 
     .blueThemeIndicator {
         @include Indicator;
-        background-color: t.$color-pick-blue;
         border: 2px solid t.$color-border-blue;
     }
 }
@@ -85,7 +84,6 @@
 
     .greenThemeIndicator {
         @include Indicator;
-        background-color: t.$color-pick-green;
         border: 2px solid t.$color-border-green;
     }
 }
@@ -96,7 +94,6 @@
 
     .redThemeIndicator {
         @include Indicator;
-        background-color: t.$color-pick-red;
         border: 2px solid t.$color-border-red;
     }
 }
@@ -107,7 +104,6 @@
 
     .orangeThemeIndicator {
         @include Indicator;
-        background-color: t.$color-pick-orange;
         border: 2px solid t.$color-border-orange;
     }
 }
@@ -118,7 +114,6 @@
 
     .yellowThemeIndicator {
         @include Indicator;
-        background-color: t.$color-pick-yellow;
         border: 2px solid t.$color-border-yellow;
     }
 }

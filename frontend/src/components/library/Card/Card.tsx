@@ -1,11 +1,13 @@
 import { motion, useAnimate } from "motion/react"
 import { type ReactNode } from "react"
 import styles from './Card.module.scss'
+import { useAtomValue } from "jotai"
+import cardThemeAtom from "../../../atoms/cardThemeAtom"
 
 interface CardProps {
     children: ReactNode,
     className: string,
-    mouseRotate: boolean
+    mouseRotate?: boolean,
 }
 
 var Card = (
@@ -40,6 +42,8 @@ var Card = (
             }, { duration: 0.1 })
         }
 
+        var cardTheme = useAtomValue(cardThemeAtom)
+
         return (
             <motion.div className={styles[className]}
                     ref={coords}
@@ -47,7 +51,7 @@ var Card = (
                     animate={{ opacity: 1 }}
                     onMouseMove={mouseMove}
                     onMouseLeave={mouseLeave}
-                    style={{ transformStyle: 'preserve-3d' }}
+                    style={{ transformStyle: 'preserve-3d', backgroundColor: `${cardTheme}` }}
                 >
                 {children}
             </motion.div>

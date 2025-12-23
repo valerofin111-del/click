@@ -1,7 +1,6 @@
 @use '../../../styles/templates.scss' as t;
 
 @mixin CardMain {
-    background-color: t.$color-card;
     border-radius: 8px;
     width: 65%;
     height: 320px;
@@ -11,7 +10,6 @@
 }
 
 @mixin Card {
-    background-color: t.$color-card;
     border-radius: 8px;
     width: 20%;
     height: 320px;
