@@ -3,6 +3,7 @@ import Fastify, { type FastifyInstance } from 'fastify'
 import cors from '@fastify/cors'
 import swagger from '@fastify/swagger'
 import swaggerUi from '@fastify/swagger-ui'
+import jwt from '@fastify/jwt'
 // <-- Framework
 
 import 'dotenv/config'
@@ -58,6 +59,19 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
         routePrefix: '/docs'
     })
 
+    await fastify.register(jwt, {
+        secret: process.env.SECRET_JWT
+    })
+
+    fastify.decorate('auth', async ( req, reply ) => {
+        try {
+            await req.jwtVerify()
+        } catch (err) {
+            reply.send(err)
+        }
+    })
+
+   
     await fastify.register(userRoutes)
     await fastify.register(friendsRoutes)
 

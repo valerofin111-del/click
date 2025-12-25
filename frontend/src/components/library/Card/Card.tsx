@@ -1,5 +1,5 @@
 import { motion, useAnimate } from "motion/react"
-import { type ReactNode } from "react"
+import { type FC, type ReactNode } from "react"
 import styles from './Card.module.scss'
 import { useAtomValue } from "jotai"
 import cardThemeAtom from "../../../atoms/cardThemeAtom"
@@ -10,7 +10,7 @@ interface CardProps {
     mouseRotate?: boolean,
 }
 
-var Card = (
+var Card : FC = (
     ({children, className, mouseRotate} : CardProps ) => {
 
         var [ coords, animate ] = useAnimate<HTMLDivElement>()

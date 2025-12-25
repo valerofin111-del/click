@@ -9,6 +9,7 @@ import Card from "../library/Card/Card";
 import PickText from "../library/PickText/PickText";
 import colorThemeAtom from "../../atoms/colorThemeAtom";
 import { useAtomValue } from "jotai";
+import type { FC } from "react";
 
 var formSchema = z.object({
     name: z.string().min(3).max(20),
@@ -17,7 +18,7 @@ var formSchema = z.object({
 
 type Form = z.infer<typeof formSchema>
 
-var LogPage = function () {
+var LogPage : FC = function () {
 
   var theme = useAtomValue(colorThemeAtom)
 

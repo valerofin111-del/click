@@ -1,5 +1,5 @@
 import { RouterProvider, type RouteObject, createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type FC } from "react";
 
 import Root from "./components/Root";
 
@@ -15,7 +15,7 @@ import Options from "./components/app/mainCard/Options";
 import Error from "./components/fallback/Error/Error";
 import Loading from "./components/fallback/Loading/Loading";
 
-var Routes = function () {
+var Routes : FC = function () {
     
     var routerCfg = [
         {

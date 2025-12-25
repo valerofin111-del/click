@@ -1,4 +1,4 @@
-import { type ReactNode } from "react"
+import { type FC, type ReactNode } from "react"
 import styles from './PickText.module.scss'
 
 interface PickThemeProps {
@@ -6,7 +6,7 @@ interface PickThemeProps {
     className: string
 }
 
-var PickText = (
+var PickText : FC = (
     ({children, className} : PickThemeProps) => {
         return (
             <>

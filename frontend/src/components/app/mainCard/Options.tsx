@@ -6,8 +6,9 @@ import styles from "../../../styles/mainCard.module.scss"
 import PickText from "../../library/PickText/PickText"
 import cardThemeAtom from "../../../atoms/cardThemeAtom"
 import * as Popover from '@radix-ui/react-popover'
+import type { FC } from "react"
 
-var Options = function () {
+var Options: FC = function () {
 
     var [ buttonTheme, setButtonTheme ] = useAtom(colorThemeAtom)
     var setCardTheme = useSetAtom(cardThemeAtom)

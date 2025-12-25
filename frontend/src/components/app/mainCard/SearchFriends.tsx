@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query"
 import Error from "../../fallback/Error/Error"
 import Loading from "../../fallback/Loading/Loading"
 import axios from "axios"
-import { useState } from "react"
+import { useState, type FC } from "react"
 import { useDebounce } from 'use-debounce'
 
 var friendsFindFetch = async (debouncedSearch: string) => {
@@ -20,7 +20,7 @@ var friendsFindFetch = async (debouncedSearch: string) => {
     }
 }
 
-var SearchFriends = () => {
+var SearchFriends: FC = () => {
 
     var [ search, setSearch ] = useState<string>('')
     var [ debouncedSearch ] = useDebounce(search, 500)

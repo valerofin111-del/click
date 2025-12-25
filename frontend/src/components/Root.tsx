@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom"
 import cardThemeAtom from "../atoms/cardThemeAtom"
 import { useAtomValue } from "jotai"
+import type { FC } from "react"
 
-var Root = function () {
+var Root : FC = function () {
 
     var cardTheme = useAtomValue(cardThemeAtom)
 

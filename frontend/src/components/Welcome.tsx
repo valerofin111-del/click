@@ -6,8 +6,9 @@ import Card from "./library/Card/Card";
 import themeAtom from "../atoms/colorThemeAtom";
 import { useAtomValue } from "jotai";
 import PickText from "./library/PickText/PickText";
+import type { FC } from "react";
 
-var Welcome = function () {
+var Welcome : FC = function () {
 
     var theme = useAtomValue(themeAtom)
 

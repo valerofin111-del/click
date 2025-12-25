@@ -6,9 +6,9 @@ import colorThemeAtom from '../../atoms/colorThemeAtom'
 import Nav from './clickerCard/Nav'
 import stylesMain from '../../styles/app.module.scss'
 import Clicker from './clickerCard/Clicker'
-import { useState } from 'react'
+import { useState, type FC } from 'react'
 
-var MainPage = () => {
+var MainPage : FC = () => {
 
     var theme = useAtomValue(colorThemeAtom)
     var themeMain = `${theme}Main`

@@ -1,6 +1,7 @@
+import type { FC } from 'react'
 import styles from './Error.module.scss'
 
-var Error = function () {
+var Error : FC = function () {
 
     return (
         <>

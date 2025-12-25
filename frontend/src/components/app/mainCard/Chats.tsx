@@ -4,8 +4,9 @@ import { Flex } from "@radix-ui/themes"
 import PickText from "../../library/PickText/PickText"
 import colorThemeAtom from "../../../atoms/colorThemeAtom"
 import { useAtomValue } from "jotai"
+import type { FC } from "react"
 
-var Chats = () => {
+var Chats: FC = () => {
 
     var theme = useAtomValue(colorThemeAtom)
 
