@@ -4,12 +4,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import styles from '../../styles/auth.module.scss'
 import { motion } from "motion/react";
 import { Flex } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../library/Card/Card";
 import PickText from "../library/PickText/PickText";
 import colorThemeAtom from "../../atoms/colorThemeAtom";
 import { useAtomValue } from "jotai";
 import type { FC } from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 var formSchema = z.object({
     name: z.string().min(3).max(20),
@@ -19,6 +21,8 @@ var formSchema = z.object({
 type Form = z.infer<typeof formSchema>
 
 var LogPage : FC = function () {
+
+  var nav = useNavigate()
 
   var theme = useAtomValue(colorThemeAtom)
 
@@ -31,8 +35,17 @@ var LogPage : FC = function () {
     mode: 'onBlur'
   })
 
+  var mutation = useMutation({
+    mutationFn: (data) => axios.post('http://localhost:5000/user/log', data),
+    onSuccess: (response) : void => {
+      console.info(response.data)
+      nav('/app/chats', { replace: true })      
+    },
+    onError: (e) => console.error(e)
+  })
+
   const sendForm = function(data: Form) {
-    console.log(data) // query
+    mutation.mutate(data) 
   }
 
   return (

@@ -6,8 +6,10 @@ import Root from "./components/Root";
 import Welcome from "./components/Welcome";
 import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
+import AuthGuard from "./components/auth/AuthGuard";
 
 var MainPage = lazy(() => import('./components/app/MainPage'));
+import Greetings from "./components/app/mainCard/Greetings";
 import Chats from "./components/app/mainCard/Chats";
 import SearchFriends from "./components/app/mainCard/SearchFriends";
 import Options from "./components/app/mainCard/Options";
@@ -37,19 +39,28 @@ var Routes : FC = function () {
                 },
                 {
                     path: 'app',
-                    element: <Suspense fallback={Loading} ><MainPage /></Suspense>,
+                    element: <AuthGuard />,
                     children: [
                         {
-                            path: 'chats',
-                            element: <Chats />
-                        },
-                        {
-                            path: 'friends',
-                            element: <SearchFriends />
-                        },
-                        {
-                            path: 'options',
-                            element: <Options />
+                            element: <Suspense fallback={<Loading />} ><MainPage /></Suspense>,
+                            children: [
+                                {
+                                    index: true,
+                                    element: <Greetings />
+                                },
+                                {
+                                    path: 'chats',
+                                    element: <Chats />
+                                },
+                                {
+                                    path: 'friends',
+                                    element: <SearchFriends />
+                                },
+                                {
+                                    path: 'options',
+                                    element: <Options />
+                                }
+                            ]
                         }
                     ]
                 }

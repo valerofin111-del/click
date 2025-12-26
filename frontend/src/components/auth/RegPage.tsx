@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import styles from '../../styles/auth.module.scss'
 import { motion } from "motion/react";
 import { Flex } from "@radix-ui/themes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../library/Card/Card";
 import PickText from "../library/PickText/PickText";
 import colorThemeAtom from "../../atoms/colorThemeAtom";
@@ -20,7 +20,9 @@ var formSchema = z.object({
 
 type Form = z.infer<typeof formSchema>
 
-var RegPage = function () {
+var RegPage : FC = function () {
+
+  var nav = useNavigate()
 
   var theme = useAtomValue(colorThemeAtom)
 
@@ -33,9 +35,12 @@ var RegPage = function () {
     mode: 'onBlur'
   })
 
-  var mutation : FC = useMutation({
+  var mutation = useMutation({
     mutationFn: (data) => axios.post('http://localhost:5000/user/create', data),
-    onSuccess: (response) => console.info(response.data),
+    onSuccess: (response) : void => {
+      console.info(response.data)
+      nav('/log', { replace: true })
+      },
     onError: (e) => console.error(e)
   })
 
