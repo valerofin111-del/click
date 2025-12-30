@@ -10,12 +10,12 @@ interface CardProps {
     mouseRotate?: boolean,
 }
 
-var Card : FC = (
+var Card = (
     ({children, className, mouseRotate} : CardProps ) => {
 
         var [ coords, animate ] = useAnimate<HTMLDivElement>()
 
-        var mouseMove = (e): void => {
+        var mouseMove = (e : any): void => {
             if (!coords.current) return
 
             var rect = e.currentTarget.getBoundingClientRect()

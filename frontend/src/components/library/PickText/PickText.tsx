@@ -2,11 +2,11 @@ import { type FC, type ReactNode } from "react"
 import styles from './PickText.module.scss'
 
 interface PickThemeProps {
-    children: ReactNode,
+    children?: ReactNode,
     className: string
 }
 
-var PickText : FC = (
+var PickText = (
     ({children, className} : PickThemeProps) => {
         return (
             <>

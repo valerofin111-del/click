@@ -113,7 +113,7 @@ var LogPage : FC = function () {
                     whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 59%, 61%)' }}
                     whileHover={{ scale: 1.05, color: 'hsl(0, 0%, 5%)' }}
                   >
-                    {isSubmitting ? '...' : 'Log'}
+                    {isSubmitting ? '...' : 'Submit'}
                   </motion.button> 
 
                   <span className={styles.Error} >

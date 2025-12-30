@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Loading from "../fallback/Loading/Loading";
 
 var AuthGuard : FC = () => {
