@@ -1,5 +1,5 @@
 // Framework -->
-import Fastify, { FastifyReply, FastifyRequest, type FastifyInstance } from 'fastify'
+import Fastify, { type FastifyInstance } from 'fastify'
 import cors from '@fastify/cors'
 import swagger from '@fastify/swagger'
 import swaggerUi from '@fastify/swagger-ui'
@@ -49,7 +49,15 @@ interface Server {
 
 var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
     var fastify = Fastify({
-        logger: true
+        logger: {
+            level: 'info',
+            transport: {
+                target: 'pino-pretty',
+                options: {
+                    colorize: true
+                }
+            }
+        }
     })
 
     fastify.decorate('db', db)
