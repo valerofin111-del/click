@@ -31,7 +31,7 @@ var userLog = {
     handler: _userLog
 }
 
-var userRoutes = function ( fastify : FastifyInstance, options, done ) {
+var userRoutes = function ( fastify : FastifyInstance, options : any, done : any ) {
 
     fastify.post('/user/create', userReg)
 
@@ -40,7 +40,7 @@ var userRoutes = function ( fastify : FastifyInstance, options, done ) {
     fastify.get('/user/isAuth', { onRequest: [fastify.auth], handler: async ( req, reply ) => {
         reply.send({
             isAuth: true,
-            user: req.name
+            user: req.user
         })
     } })
 

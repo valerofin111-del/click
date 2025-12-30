@@ -5,7 +5,7 @@ import { useAtomValue } from "jotai"
 import cardThemeAtom from "../../../atoms/cardThemeAtom"
 
 interface CardProps {
-    children: ReactNode,
+    children?: ReactNode,
     className: string,
     mouseRotate?: boolean,
 }

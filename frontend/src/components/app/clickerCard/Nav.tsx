@@ -3,10 +3,13 @@ import * as Select from '@radix-ui/react-select'
 import { AnimatePresence, motion } from 'motion/react'
 import { useNavigate } from 'react-router-dom'
 import styles from '../../../styles/clickerCard.module.scss'
-import type { FC } from 'react'
 
-var Nav : FC = (
-    ({className} : string) => {
+interface NavOptions {
+    className: string
+}
+
+var Nav= (
+    ({className} : NavOptions) => {
 
         var themeNav = `${className}Nav`
 

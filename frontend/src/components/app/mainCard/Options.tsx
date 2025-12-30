@@ -7,11 +7,14 @@ import PickText from "../../library/PickText/PickText"
 import cardThemeAtom from "../../../atoms/cardThemeAtom"
 import * as Popover from '@radix-ui/react-popover'
 import type { FC } from "react"
+import { useNavigate } from "react-router-dom"
 
 var Options: FC = function () {
 
     var [ buttonTheme, setButtonTheme ] = useAtom(colorThemeAtom)
     var setCardTheme = useSetAtom(cardThemeAtom)
+
+    var nav = useNavigate()
 
     var newButtonTheme = () => {
         setButtonTheme(prev => {
@@ -30,11 +33,16 @@ var Options: FC = function () {
     var newCardTheme = () => {
         setCardTheme(prev => {
             switch(prev) {
-                case 'hsla(0, 0%, 20%, 1.00)': return 'hsla(0, 0%, 60%, 1.00)';
-                case 'hsla(0, 0%, 60%, 1.00)': return 'hsla(0, 0%, 20%, 1.00)';
+                case 'hsla(0, 0%, 20%, 1.00)' : return 'hsla(0, 0%, 30%, 1.00)';
+                case 'hsla(0, 0%, 30%, 1.00)' : return 'hsla(0, 0%, 20%, 1.00)';
                 default: return 'hsla(0, 0%, 20%, 1.00)';
             }
         })
+    }
+
+    var leaveAcc = () => {
+        sessionStorage.setItem('token', '')
+        nav('/log', { replace: true })
     }
 
     return (
@@ -80,11 +88,10 @@ var Options: FC = function () {
                 <Flex className={styles.Account} justify={'center'} direction={'column'} >
                     
                     <h1 className={styles.Name}>{'UserName'} </h1>
-                    <h1 className={styles.Email} >{'user@example.com'} </h1>
 
                     <Flex className={styles.Actions} justify={'center'}  direction={'row'} >
 
-                        <motion.div className={styles.Leave} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >
+                        <motion.div onClick={leaveAcc} className={styles.Leave} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >
                             <h1>Leave Account</h1>
                         </motion.div>
 

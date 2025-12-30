@@ -1,5 +1,5 @@
 // Framework -->
-import Fastify, { type FastifyInstance } from 'fastify'
+import Fastify, { FastifyReply, FastifyRequest, type FastifyInstance } from 'fastify'
 import cors from '@fastify/cors'
 import swagger from '@fastify/swagger'
 import swaggerUi from '@fastify/swagger-ui'
@@ -17,12 +17,19 @@ import friendsRoutes from './routes/friends.js'
 import { PrismaClient } from '@prisma/client'
 import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
-import friendRoutes from './routes/friends.js'
 
 declare module 'fastify' {
     interface FastifyInstance {
         db: PrismaClient,
         pool: Pool
+    }
+}
+
+declare module 'fastify' {
+    interface FastifyInstance {
+        auth: ( req: FastifyRequest, reply: FastifyReply ) => Promise<void>;
+        db: PrismaClient;
+        pool: Pool;
     }
 }
 
@@ -62,8 +69,8 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
     await fastify.register(jwt, {
         secret: process.env.SECRET_JWT
     })
-
-    fastify.decorate('auth', async ( req, reply ) => {
+   
+    fastify.decorate('auth', async ( req : any, reply : any ) => {
         try {
             await req.jwtVerify()
         } catch (err) {
@@ -71,7 +78,6 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
         }
     })
 
-   
     await fastify.register(userRoutes)
     await fastify.register(friendsRoutes)
 

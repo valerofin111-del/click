@@ -55,13 +55,14 @@ var LogPage : FC = function () {
   var mutation = useMutation({
     mutationFn: (data) => axios.post('http://localhost:5000/user/log', data),
     onSuccess: (response) : void => {
-      console.info(response.data)
-      nav('/app/chats', { replace: true })      
+      console.info(`Your account --> ${response.data}`)
+      sessionStorage.setItem('token', response.data.token)
+      nav('/app', { replace: true })      
     },
     onError: (e) => console.error(e)
   })
 
-  const sendForm = function(data: Form) {
+  const sendForm = function(data: any) {
     mutation.mutate(data) 
   }
 

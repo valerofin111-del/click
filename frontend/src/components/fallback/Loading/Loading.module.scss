@@ -1,5 +1,13 @@
 @use '../../../styles/templates.scss' as t;
 
-.Title {
-    color: t.$color-action
+.Div {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    .Title {
+        color: t.$color-loading;
+        font-size: 64px;
+    }
 }

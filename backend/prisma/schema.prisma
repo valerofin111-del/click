@@ -16,7 +16,7 @@ model User {
   name        String       @id
   key         String
   email       String?      @unique
-  cycles      Int          @default(0)
+  points      Int          @default(0)
   friendUser1 Friendship[] @relation("friend1")
   friendUser2 Friendship[] @relation("friend2")
   messages    Message[]    @relation("messages")

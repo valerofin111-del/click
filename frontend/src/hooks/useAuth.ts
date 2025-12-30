@@ -9,7 +9,13 @@ var useAuth = function () {
     })
 
     useEffect( () => {
-        axios.get('http://localhost:5000/user/isAuth', { withCredentials: true })
+        var token = sessionStorage.getItem('token')
+
+        axios.get('http://localhost:5000/user/isAuth', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => setState({
                 isAuth: response.data.isAuth,
                 isLoading: false

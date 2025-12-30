@@ -1,21 +1,25 @@
 import { ErrorBoundary } from 'react-error-boundary'
-import { type FC, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 interface ErrorFallbackProps {
     error: Error,
     resetErrorBoundary: () => void
 }
 
-var ErrorFallback : FC = ({ error, resetErrorBoundary } : ErrorFallbackProps) => {
+var ErrorFallback = ({ error, resetErrorBoundary } : ErrorFallbackProps) => {
     return (
         <>
-            <h1>Error { '-->', error } </h1>
+            <h1>Error : {`--> ${error.message}`} </h1>
             <button onClick={resetErrorBoundary}>Try again</button>
         </>
     )
 }
 
-var AppErrorBoundary : FC = ({children} : ReactNode) => {
+interface AppErrorBoundaryOptions {
+    children: ReactNode
+}
+
+var AppErrorBoundary = ({children} : AppErrorBoundaryOptions) => {
     return (
         <>
             <ErrorBoundary FallbackComponent={ErrorFallback} 

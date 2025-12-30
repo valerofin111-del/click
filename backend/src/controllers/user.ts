@@ -47,7 +47,7 @@ export var _userLog = async ( req: FastifyRequest, reply: FastifyReply ) => {
             name: user.name,
         }
 
-        var token = req.server.jwt.sign(payload)
+        var token = req.server.jwt.sign(payload, {expiresIn: '1200'})
 
         reply.send({ token, user: user.name })
 

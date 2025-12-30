@@ -14,12 +14,12 @@ var MainPage : FC = () => {
     var themeMain = `${theme}Main`
 
     var [ clicks, setClicks ] = useState<number>(0)
-    var [ cycle, setCycle ] = useState<number>(0)
+    var [ points, setPoints ] = useState<number>(0)
 
     var click = () => {
         if (clicks === 9) {
             setClicks(prev => prev * 0)
-            setCycle(prev => prev + 1)
+            setPoints(prev => prev + 1)
         } else {
             setClicks(prev => (prev + 1)) 
         }
@@ -28,7 +28,7 @@ var MainPage : FC = () => {
     <>
         <Flex className={stylesMain.App} justify={'center'} >
 
-            <Card className={themeMain} isDarkTheme={true} mouseRotate={true} >
+            <Card className={themeMain} mouseRotate={true} >
                 <Outlet />
             </Card>
 
@@ -37,8 +37,7 @@ var MainPage : FC = () => {
 
                 <Clicker className={theme} clicks={clicks} onClick={click} />
 
-                <p>Clicks: {clicks} </p>
-                <p>Cycle: {cycle} </p>
+                <p style={{ display: 'flex', justifyContent: 'center', marginTop: '56px' }} >Points: {points} </p>
             </Card>
         </Flex>
     </>

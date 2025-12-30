@@ -1,6 +1,5 @@
 import { motion } from 'motion/react'
 import styles from '../../../styles/clickerCard.module.scss'
-import type { FC } from 'react'
 
 interface ClickerProps {
     className: string,
@@ -8,7 +7,7 @@ interface ClickerProps {
     clicks: number
 }
 
-var Clicker: FC = function ({className, onClick, clicks} : ClickerProps) {
+var Clicker = function ({className, onClick, clicks} : ClickerProps) {
 
     var themeClicker = `${className}Clicker`
     var themeIndicator = `${className}Indicator`

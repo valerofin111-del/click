@@ -55,13 +55,13 @@ var RegPage : FC = function () {
   var mutation = useMutation({
     mutationFn: (data) => axios.post('http://localhost:5000/user/create', data),
     onSuccess: (response) : void => {
-      console.info(response.data)
+      console.info(`Created new account --> ${response.data}`)
       nav('/log', { replace: true })
       },
     onError: (e) => console.error(e)
   })
 
-  var sendForm = function(data: Form) : void {
+  var sendForm = function(data: any) : void {
     mutation.mutate(data)
   }
 

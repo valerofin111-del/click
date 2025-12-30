@@ -42,7 +42,7 @@ var SearchFriends: FC = () => {
             <Flex justify={'center'} direction={'column'} 
                 style={{ overflowY: 'auto', height: '310px', border: '2px solid hsl(0, 0%, 5%)', borderRadius: '8px', boxShadow: '2px 2px 1px 1px hsl(0, 0%, 5%)' }} 
             >
-                {search.length === 0 && !isError && (
+                {search.length === 0 && !isError && !isLoading && (
                     <Flex justify={'center'}>
                         <h1>Try to find friends</h1>
                     </Flex>
@@ -54,24 +54,25 @@ var SearchFriends: FC = () => {
                     </Flex>
                 )}
 
-                {isError && !search.length === 1 && (
+                {search.length !== 1 && isError && (
                     <Flex justify={'center'}>
                         <Error />
                     </Flex>
                 )}
+
                 {isLoading && (
                     <Flex justify={'center'}>
                         <Loading />
                     </Flex>
                 )}
 
-                {data && data.map(friend => (
-                    <p key={friend.name} style={{ marginLeft: '36px' }} >{friend.name} </p>
+                {data && data.map((friend : any) => (
+                        <p style={{ marginTop: '24px', marginBottom: '18px', marginLeft: '36px' }} key={friend.name} >{friend.name} </p>
                 ))}
             </Flex>
             
             <Flex justify={'center'} style={{ marginTop: '20px' }} >
-                <motion.input style={{ width: '390px' }} onChange={(e) => setSearch(e.target.value)} value={search} ></motion.input>
+                <motion.input placeholder="user..." style={{ width: '390px' }} onChange={(e) => setSearch(e.target.value)} value={search} ></motion.input>
             </Flex>
         </>
     )
