@@ -13,7 +13,7 @@ var Clicker = function ({onClick, clicks} : ClickerProps) {
 
     return (
         <>
-            <motion.img className={styles.Clicker} 
+            <motion.img className={styles.Clicker} whileTap={{ scaleX: 1.2 }}
                 onClick={onClick} animate={{ scale: size }} 
                 src={clickIMG} alt='Click!' 
             />

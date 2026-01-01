@@ -155,3 +155,29 @@
         border-bottom: 2px solid t.$color-border-yellow;
     }
 }
+
+.ResponseArea {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(110, 225, 255);
+    align-items: center;
+    overflow-y: auto;
+    flex-wrap: wrap;
+
+    .Response {
+        color: t.$color-action;
+        margin: 12px;
+        background-color: t.$color-btn;
+        padding: 12px;
+        border: 2px solid t.$color-border-default;
+        border-radius: 8px;
+    }
+
+    .NotResponse {
+        color: t.$color-action;
+    }
+}
+
+.PageNum {
+    color: t.$color-action;
+}

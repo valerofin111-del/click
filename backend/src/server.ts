@@ -90,8 +90,8 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
     fastify.decorate('auth', async ( req : any, reply : any ) => {
         try {
             await req.jwtVerify()
-        } catch (err) {
-            reply.send(err)
+        } catch (err : any) {
+            reply.send(err.message)
         }
     })
 

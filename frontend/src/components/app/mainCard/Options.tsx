@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom"
 
 var Options: FC = function () {
 
+    var accountName = localStorage.getItem('name')
+
     var [ buttonTheme, setButtonTheme ] = useAtom(colorThemeAtom)
     var setCardTheme = useSetAtom(cardThemeAtom)
 
@@ -87,7 +89,7 @@ var Options: FC = function () {
 
                 <Flex className={styles.Account} justify={'center'} direction={'column'} >
                     
-                    <h1 className={styles.Name}>{'UserName'} </h1>
+                    <h1 className={styles.Name}>{accountName} </h1>
 
                     <Flex className={styles.Actions} justify={'center'}  direction={'row'} >
 

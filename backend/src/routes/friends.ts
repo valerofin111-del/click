@@ -56,7 +56,7 @@ var friendsMake = {
     handler: _friendsMake
 }
 
-var friendsRoutes = function ( fastify, options, done ) {
+var friendsRoutes = function ( fastify : any, options : any, done : any ) {
 
     fastify.get('/friends/find', friendsFind)
 

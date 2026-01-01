@@ -2,8 +2,8 @@ POST http://localhost:5000/user/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "user26323436",
-    "key": 2223466
+    "name": "user2632saddasdadas",
+    "key": "4ff"
 }
 
 # GET http://localhost:5000/friends/find?search=val HTTP/1.1

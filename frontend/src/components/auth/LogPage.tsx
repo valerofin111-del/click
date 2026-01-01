@@ -55,8 +55,8 @@ var LogPage : FC = function () {
   var mutation = useMutation({
     mutationFn: (data) => axios.post('http://localhost:5000/user/log', data),
     onSuccess: (response) : void => {
-      console.info(`Your account --> ${response.data}`)
       localStorage.setItem('token', response.data.token)
+      localStorage.setItem('name', response.data.name)
       nav('/app', { replace: true })      
     },
     onError: (e) => console.error(e)

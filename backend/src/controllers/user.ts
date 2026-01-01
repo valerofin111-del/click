@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs"
-import fastify, { FastifyRequest, FastifyReply } from "fastify"
+import { FastifyRequest, FastifyReply } from "fastify"
 
 interface userData {
     name: string,
@@ -23,7 +23,7 @@ export var _userReg = async ( req : FastifyRequest, reply : FastifyReply ) => {
 export var _userLog = async ( req: FastifyRequest, reply: FastifyReply ) => {
     try {
         var { db } = req.server        
-        var { name, key } = req.body
+        var { name, key } : any = req.body
 
         var user = await db.user.findUnique({
             where: { name: name }
@@ -47,11 +47,11 @@ export var _userLog = async ( req: FastifyRequest, reply: FastifyReply ) => {
             name: user.name,
         }
 
-        var token = req.server.jwt.sign(payload, {expiresIn: '1200'})
+        var token = req.server.jwt.sign(payload)
 
-        reply.send({ token, user: user.name })
+        reply.send({ token, name: user.name })
 
-    } catch (e) {
+    } catch (e : any) {
         reply.code(500).send({ error: e.message })
     }
 }

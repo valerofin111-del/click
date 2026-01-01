@@ -1,20 +1,21 @@
-$color-bg: hsl(0, 0%, 60%);
 $color-btn: hsl(0, 0%, 15%);
 
 $color-action: hsl(0, 59%, 61%);
 $color-warning: hsl(0, 76%, 52%);
 $color-settings: hsl(0, 0%, 5%);
 
-$color-text: hsl(0, 0%, 45%);
-
 $color-card-dark: hsla(0, 0%, 20%, 1.00);
 $color-card-light: hsla(0, 0%, 30%, 1.00);
+
+$color-border-default: hsl(0, 0%, 60%);
 
 $color-border-blue: hsl(214, 35%, 55%);
 $color-border-green: hsl(103, 35%, 55%);
 $color-border-red: hsl(7, 35%, 55%);
 $color-border-orange: hsl(34, 87%, 63%);
 $color-border-yellow: hsl(56, 77%, 63%);
+
+$color-text: hsl(0, 0%, 45%);
 
 $color-pick-blue: hsl(212, 43%, 52%);
 $color-pick-green: hsl(140, 43%, 52%);

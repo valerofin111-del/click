@@ -3,7 +3,7 @@ import { FastifyRequest, FastifyReply } from "fastify"
 export var _friendsFind = async (req : FastifyRequest, reply : FastifyReply) => {
     try {
         var { db } = req.server
-        var { search, page, limit } = req.query
+        var { search, page, limit } : any = req.query
 
         var skipPages = (page - 1) * limit
 
@@ -25,7 +25,7 @@ export var _friendsFind = async (req : FastifyRequest, reply : FastifyReply) => 
 export var _friendsMake = async ( req : FastifyRequest, reply : FastifyReply ) => {
     try {
         var { db } = req.server
-        var { name, friend_name } = req.body
+        var { name, friend_name } : any = req.body
 
         if (name === friend_name) {
             throw new Error("You can't be friends yourself")
@@ -54,7 +54,7 @@ export var _friendsMake = async ( req : FastifyRequest, reply : FastifyReply ) =
         })        
 
         reply.code(201).send(makeFriends)
-    } catch (e) {
+    } catch (e : any) {
         reply.code(500).send({ error: e.message })
     }
 }
