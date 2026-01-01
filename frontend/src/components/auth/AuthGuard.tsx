@@ -12,15 +12,9 @@ var AuthGuard : FC = () => {
     }
 
     if (!isAuth) {
-        return (
-            <Navigate to='/log' replace />
-        )
+        return <Navigate to='/log' replace />
     } else {
-        return (
-            <>
-                <Outlet />
-            </>
-        )
+        return <Outlet />
     }
 } 
 

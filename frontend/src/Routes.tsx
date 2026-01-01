@@ -8,7 +8,7 @@ import LogPage from "./components/auth/LogPage";
 import RegPage from "./components/auth/RegPage";
 import AuthGuard from "./components/auth/AuthGuard";
 
-var MainPage = lazy(() => import('./components/app/MainPage'));
+var App = lazy(() => import('./components/app/App'));
 import Greetings from "./components/app/mainCard/Greetings";
 import Chats from "./components/app/mainCard/Chats";
 import SearchFriends from "./components/app/mainCard/SearchFriends";
@@ -42,7 +42,7 @@ var Routes : FC = function () {
                     element: <AuthGuard />,
                     children: [
                         {
-                            element: <Suspense fallback={<Loading />} ><MainPage /></Suspense>,
+                            element: <Suspense fallback={<Loading />} ><App /></Suspense>,
                             children: [
                                 {
                                     index: true,
@@ -66,7 +66,7 @@ var Routes : FC = function () {
                 }
             ] 
         }
-    ] as const satisfies RouteObject
+    ] as const satisfies RouteObject[]
 
     var router = createBrowserRouter(routerCfg)
 

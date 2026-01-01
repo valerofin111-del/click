@@ -1,8 +1,15 @@
 @use './templates.scss' as t;
 
-.Main {
+.App {
 
     p {
         color: t.$color-text;
+    }
+
+    .Points {
+        display: flex;
+        justify-content: center;
+        color: t.$color-action;
+        font-size: 32px;
     }
 }

@@ -7,6 +7,7 @@ import Nav from './clickerCard/Nav'
 import stylesMain from '../../styles/app.module.scss'
 import Clicker from './clickerCard/Clicker'
 import { useState, type FC } from 'react'
+import { motion } from 'motion/react'
 
 var MainPage : FC = () => {
 
@@ -35,9 +36,9 @@ var MainPage : FC = () => {
             <Card className={theme} mouseRotate={false} >
                 <Nav className={theme} />
 
-                <Clicker className={theme} clicks={clicks} onClick={click} />
+                <Clicker clicks={clicks} onClick={click} />
 
-                <p style={{ display: 'flex', justifyContent: 'center', marginTop: '56px' }} >Points: {points} </p>
+                <motion.p animate={{ y: 80 }} className={stylesMain.Points} >{points} </motion.p>
             </Card>
         </Flex>
     </>

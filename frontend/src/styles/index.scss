@@ -1,10 +1,5 @@
 @use './templates.scss' as t;
 
-#root {
-  width: 100vw;
-  height: 100vh;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -14,4 +9,15 @@ body {
   font-weight: 900;
   font-style: normal;
   background-color: t.$color-bg;
+  width: 100vw;
+  height: 100vh;
+
+    #root {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

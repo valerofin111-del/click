@@ -1,36 +1,22 @@
 import { motion } from 'motion/react'
 import styles from '../../../styles/clickerCard.module.scss'
+import clickIMG from '../../../images/click.png'
 
 interface ClickerProps {
-    className: string,
     onClick: () => void,
     clicks: number
 }
 
-var Clicker = function ({className, onClick, clicks} : ClickerProps) {
+var Clicker = function ({onClick, clicks} : ClickerProps) {
 
-    var themeClicker = `${className}Clicker`
-    var themeIndicator = `${className}Indicator`
-
-    var themeCLick = () => {
-        switch(className) {
-            case 'blueTheme': return 'hsl(212, 43%, 52%)';
-            case 'greenTheme': return 'hsl(140, 43%, 52%)';
-            case 'redTheme': return 'hsl(0, 43%, 52%)';
-            case 'orangeTheme': return 'hsl(34, 75%, 51%)';
-            case 'yellowTheme': return 'hsl(51, 75%, 51%)';
-            default: return 'hsl(212, 43%, 52%)';
-        }
-    }
-
-    var size = (clicks + 1) * 0.1
+    var size = 1 + clicks * 0.15
 
     return (
         <>
-            <motion.div className={styles[themeClicker]} >
-                <motion.div onClick={onClick} className={styles[themeIndicator]} 
-                    animate={{ scale: size }} whileTap={{ scale: size + 0.1 , backgroundColor: themeCLick() }} />
-            </motion.div>
+            <motion.img className={styles.Clicker} 
+                onClick={onClick} animate={{ scale: size }} 
+                src={clickIMG} alt='Click!' 
+            />
         </>
     )
 }

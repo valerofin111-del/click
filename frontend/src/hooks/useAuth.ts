@@ -9,7 +9,7 @@ var useAuth = function () {
     })
 
     useEffect( () => {
-        var token = sessionStorage.getItem('token')
+        var token = localStorage.getItem('token')
 
         axios.get('http://localhost:5000/user/isAuth', {
             headers: {

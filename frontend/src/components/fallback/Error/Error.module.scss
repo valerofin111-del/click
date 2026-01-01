@@ -1,5 +1,12 @@
 @use '../../../styles/templates.scss' as t;
 
-.Title {
-    color: t.$color-warning
+.Div {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(105, 224, 255);
+
+    img {
+        width: 80%;
+        height: auto; 
+    }
 }

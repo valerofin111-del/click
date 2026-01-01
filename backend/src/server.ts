@@ -14,6 +14,9 @@ import friendsRoutes from './routes/friends.js'
 // <-- Routes
 
 // Prisma -->
+
+declare module 'pg'
+
 import { PrismaClient } from '@prisma/client'
 import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
@@ -74,8 +77,14 @@ var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
         routePrefix: '/docs'
     })
 
+    var secretJwt = process.env.SECRET_JWT
+
+    if (!secretJwt) {
+        throw new Error('Enter SECRET_JWT to lauch server')
+    }
+
     await fastify.register(jwt, {
-        secret: process.env.SECRET_JWT
+        secret: secretJwt
     })
    
     fastify.decorate('auth', async ( req : any, reply : any ) => {

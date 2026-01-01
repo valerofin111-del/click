@@ -24,7 +24,7 @@ var Options: FC = function () {
                 case 'redTheme': return 'orangeTheme';
                 case 'orangeTheme': return 'yellowTheme';
                 case 'yellowTheme': return 'blueTheme';
-                default: return 'blueTheme';
+                default: return 'yellowTheme';
             }
 
         })
@@ -41,7 +41,7 @@ var Options: FC = function () {
     }
 
     var leaveAcc = () => {
-        sessionStorage.setItem('token', '')
+        localStorage.setItem('token', '')
         nav('/log', { replace: true })
     }
 

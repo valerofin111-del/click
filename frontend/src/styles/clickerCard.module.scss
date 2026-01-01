@@ -51,69 +51,13 @@
     color:  t.$color-pick-yellow;
 }
 
-@mixin Clicker {
-    margin-top: 48px;
-    border-radius: 48px;
-    background-color: t.$color-btn;
-    height: 180px;
-    width: 180px;
+.Clicker {
+    height: 120px;
+    width: 120px;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    padding: auto;
+    margin-top: 92px;
+    border-radius: 8px;
 }
 
-@mixin Indicator {
-    height: 180px;
-    border-radius: 48px;
-    background-color: t.$color-bg;
-}
-
-.blueThemeClicker {
-    @include Clicker;
-    background-color: t.$color-btn;
-
-    .blueThemeIndicator {
-        @include Indicator;
-        border: 2px solid t.$color-border-blue;
-    }
-}
-
-.greenThemeClicker {
-    @include Clicker;
-    background-color: t.$color-btn;
-
-    .greenThemeIndicator {
-        @include Indicator;
-        border: 2px solid t.$color-border-green;
-    }
-}
-
-.redThemeClicker {
-    @include Clicker;
-    background-color: t.$color-btn;
-
-    .redThemeIndicator {
-        @include Indicator;
-        border: 2px solid t.$color-border-red;
-    }
-}
-
-.orangeThemeClicker {
-    @include Clicker;
-    background-color: t.$color-btn;
-
-    .orangeThemeIndicator {
-        @include Indicator;
-        border: 2px solid t.$color-border-orange;
-    }
-}
-
-.yellowThemeClicker {
-    @include Clicker;
-    background-color: t.$color-btn;
-
-    .yellowThemeIndicator {
-        @include Indicator;
-        border: 2px solid t.$color-border-yellow;
-    }
-}

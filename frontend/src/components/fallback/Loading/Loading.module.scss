@@ -3,11 +3,11 @@
 .Div {
     display: flex;
     justify-content: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    background-color: rgb(121, 225, 255);
 
-    .Title {
-        color: t.$color-loading;
-        font-size: 64px;
+    img {
+        width: 80%;
+        height: auto; 
+        border-radius: 8px;
     }
 }

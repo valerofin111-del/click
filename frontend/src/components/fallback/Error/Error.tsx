@@ -1,11 +1,14 @@
 import type { FC } from 'react'
 import styles from './Error.module.scss'
+import errorIMG from '../../../images/error.png'
 
 var Error : FC = function () {
 
     return (
         <>
-            <h1 className={styles.Title} >Some Error</h1>
+            <div className={styles.Div} >
+                <img src={errorIMG} alt='error!' />
+            </div>
         </>
     )
 }
