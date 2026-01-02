@@ -13,7 +13,8 @@ var useAuth = function () {
 
         axios.get('http://localhost:5000/user/isAuth', {
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
             }
         })
             .then(response => setState({

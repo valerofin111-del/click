@@ -57,6 +57,8 @@ var LogPage : FC = function () {
     onSuccess: (response) : void => {
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('name', response.data.name)
+      localStorage.setItem('clicks', response.data.clicks)
+      localStorage.setItem('points', response.data.points)
       nav('/app', { replace: true })      
     },
     onError: (e) => console.error(e)

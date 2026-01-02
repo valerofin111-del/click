@@ -14,8 +14,8 @@ import Chats from "./components/app/mainCard/Chats";
 import SearchFriends from "./components/app/mainCard/SearchFriends";
 import Options from "./components/app/mainCard/Options";
 
-import Error from "./components/fallback/Error/Error";
-import Loading from "./components/fallback/Loading/Loading";
+import Error from "./components/fallback/Error";
+import Loading from "./components/fallback/Loading";
 
 var Routes : FC = function () {
     

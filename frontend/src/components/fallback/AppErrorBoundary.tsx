@@ -1,17 +1,17 @@
 import { ErrorBoundary } from 'react-error-boundary'
 import { type ReactNode } from 'react'
+import errorIMG from '../../images/error.png'
+import styles from './Fallback.module.scss'
 
 interface ErrorFallbackProps {
-    error: Error,
     resetErrorBoundary: () => void
 }
 
-var ErrorFallback = ({ error, resetErrorBoundary } : ErrorFallbackProps) => {
+var ErrorFallback = ({ resetErrorBoundary } : ErrorFallbackProps) => {
     return (
-        <>
-            <h1>Error : {`--> ${error.message}`} </h1>
-            <button onClick={resetErrorBoundary}>Try again</button>
-        </>
+        <div className={styles.Fallback}>
+            <img src={errorIMG} onClick={resetErrorBoundary} alt='Click to reset' />
+        </div>
     )
 }
 

@@ -3,13 +3,13 @@
 .App {
 
     p {
-        color: t.$color-text;
+        color: t.$color-text-default;
     }
 
     .Points {
         display: flex;
         justify-content: center;
-        color: t.$color-action;
+        color: t.$color-special;
         font-size: 32px;
     }
 }

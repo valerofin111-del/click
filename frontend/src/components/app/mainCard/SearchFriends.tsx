@@ -4,8 +4,10 @@ import PickText from "../../library/PickText/PickText"
 import colorThemeAtom from "../../../atoms/colorThemeAtom"
 import { useAtomValue } from "jotai"
 import { useQuery } from "@tanstack/react-query"
-import Error from "../../fallback/Error/Error"
-import Loading from "../../fallback/Loading/Loading"
+import Invite from "../../fallback/Invite"
+import Loading from "../../fallback/Loading"
+import Error from "../../fallback/Error"
+import NoResults from "../../fallback/NoResults"
 import axios from "axios"
 import { useEffect, useState, type FC } from "react"
 import { useDebounce } from 'use-debounce'
@@ -56,13 +58,13 @@ var SearchFriends: FC = () => {
 
     var Response : FC = () => {
         if (search.length === 0) {
-            return <h1 className={styles.NotResponse} >Try to find friends</h1>
+            return <Invite />
         } else if (loading || isLoading ) {
             return <Loading />
-        } else if (isError) {
+        } else if (isError && search.length > 1) {
             return <Error />
         } else if (!data || data.length === 0) {
-            return <h1 className={styles.NotResponse} >No results</h1>
+            return <NoResults />
         } else {
             return (
                 <>
@@ -108,7 +110,7 @@ var SearchFriends: FC = () => {
                             }
                         })} 
                     >
-                        <motion.div whileTap={{ x: -34 }} >{'<'}</motion.div> 
+                        <motion.div className={styles.PageArrow} whileTap={{ x: -34 }} >{'<'}</motion.div> 
                     </motion.button>
                 </Tooltip.Trigger>
                 <Tooltip.Content asChild>
@@ -127,7 +129,7 @@ var SearchFriends: FC = () => {
                         <motion.button className={styles.PageBtn} initial={{ scale: 0.5 }} animate={{ x: -22, y: -14 }} 
                             whileTap={{scale: 0.6}} onClick={() => setPage(prev => prev + 1)} 
                         >
-                            <motion.div whileTap={{ x: 34 }} >{'>'}</motion.div> 
+                            <motion.div className={styles.PageArrow} whileTap={{ x: 34 }} >{'>'}</motion.div> 
                         </motion.button>
                 </Tooltip.Trigger>
                 <Tooltip.Content asChild>

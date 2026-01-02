@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify'
-import { _userReg, _userLog } from '../controllers/user.js'
+import { _userReg, _userLog, _userClick } from '../controllers/user.js'
 
 
 var userData = {
@@ -31,6 +31,18 @@ var userLog = {
     handler: _userLog
 }
 
+var userClick = {
+    schema: {
+        body: {
+            type: 'object',
+            required: ['name'],
+            properties: { name: userData.name },
+            additionalProperties: false
+        }
+    },
+    handler: _userClick
+}
+
 var userRoutes = function ( fastify : FastifyInstance, options : any, done : any ) {
 
     fastify.post('/user/create', userReg)
@@ -43,6 +55,8 @@ var userRoutes = function ( fastify : FastifyInstance, options : any, done : any
             user: req.user
         })
     } })
+
+    fastify.post('/user/click', { preHandler: fastify.auth, ...userClick })
 
     done()
 }

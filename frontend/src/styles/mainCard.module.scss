@@ -21,6 +21,14 @@
     .Name {
         display: flex;
         justify-content: center;
+        color: t.$color-special;
+        width: 214px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     .Actions {
@@ -34,9 +42,9 @@
 
         .ChangeKey {
             @include WarnBtn;
-            border: 2px solid t.$color-action;
+            border: 2px solid t.$color-special;
             background-color: t.$color-btn;
-            color: t.$color-action;
+            color: t.$color-special;
         }
     }
 }
@@ -165,7 +173,7 @@
     flex-wrap: wrap;
 
     .Response {
-        color: t.$color-action;
+        color: t.$color-special;
         margin: 12px;
         background-color: t.$color-btn;
         padding: 12px;
@@ -173,11 +181,15 @@
         border-radius: 8px;
     }
 
-    .NotResponse {
-        color: t.$color-action;
-    }
 }
 
 .PageNum {
-    color: t.$color-action;
+    color: t.$color-special;
+}
+
+.PageBtn {
+
+    .PageArrow {
+        color: t.$color-special;
+    }
 }

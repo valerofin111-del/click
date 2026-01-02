@@ -6,25 +6,38 @@ import colorThemeAtom from '../../atoms/colorThemeAtom'
 import Nav from './clickerCard/Nav'
 import stylesMain from '../../styles/app.module.scss'
 import Clicker from './clickerCard/Clicker'
-import { useState, type FC } from 'react'
+import { type FC } from 'react'
 import { motion } from 'motion/react'
+import axios from 'axios'
+import { useMutation } from '@tanstack/react-query'
 
 var MainPage : FC = () => {
 
     var theme = useAtomValue(colorThemeAtom)
     var themeMain = `${theme}Main`
 
-    var [ clicks, setClicks ] = useState<number>(0)
-    var [ points, setPoints ] = useState<number>(0)
+    var mutation = useMutation({
+        mutationFn: async () => {
+            var response = await axios.post('http://localhost:5000/user/click', 
+                { name: localStorage.getItem('name') }, 
+                { 
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json'
+                    } 
+                } 
+            )
+            return response.data
+        },
+        onSuccess: (response) => {
+            localStorage.setItem('clicks', response.clicks)
+            localStorage.setItem('points', response.points)
+        },
+        onError: (e : any) => console.error(e)
+    })
 
-    var click = () => {
-        if (clicks === 9) {
-            setClicks(prev => prev * 0)
-            setPoints(prev => prev + 1)
-        } else {
-            setClicks(prev => (prev + 1)) 
-        }
-    }
+    var addClick = () => mutation.mutate()
+
     return (
     <>
         <Flex className={stylesMain.App} justify={'center'} >
@@ -36,9 +49,9 @@ var MainPage : FC = () => {
             <Card className={theme} mouseRotate={false} >
                 <Nav className={theme} />
 
-                <Clicker clicks={clicks} onClick={click} />
+                <Clicker onClick={addClick} clicks={localStorage.getItem('clicks')} />
 
-                <motion.p animate={{ y: 80 }} className={stylesMain.Points} >{points} </motion.p>
+                <motion.p animate={{ y: 80 }} className={stylesMain.Points} >{localStorage.getItem('points')} </motion.p>
             </Card>
         </Flex>
     </>

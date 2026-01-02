@@ -14,7 +14,6 @@ import friendsRoutes from './routes/friends.js'
 // <-- Routes
 
 // Prisma -->
-
 declare module 'pg'
 
 import { PrismaClient } from '@prisma/client'

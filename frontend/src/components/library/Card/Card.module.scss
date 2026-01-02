@@ -6,7 +6,7 @@
     height: 400px;
     margin: 46px;
     padding: 64px;
-    box-shadow: 2px 2px 1px 1px t.$color-settings;
+    box-shadow: 2px 2px 1px 1px t.$color-shadow;
 }
 
 @mixin Card {
@@ -15,7 +15,7 @@
     height: 400px;
     margin: 46px;
     padding: 64px;
-    box-shadow: 2px 2px 1px 1px t.$color-settings;
+    box-shadow: 2px 2px 1px 1px t.$color-shadow;
 }
 
 @mixin Button {
@@ -33,7 +33,7 @@
 @mixin Input {
     @include t.Text;
     background-color: white;
-    color: t.$color-settings;
+    color: t.$color-shadow;
     width: 100%;
     height: 24px;
     border-radius: 8px;
