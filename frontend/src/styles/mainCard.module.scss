@@ -1,56 +1,8 @@
 @use './templates.scss' as t;
 
-@mixin WarnBtn {
-    border-radius: 8px;
-    height: 48px;
-    width: 40%;
-    padding-top: 8px;
-    margin-left: 12px;
-    margin-right: 12px;
-    
-    h1 {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-    }
-}
-
-.Account {
-    margin-top: 42px;
-
-    .Name {
-        display: flex;
-        justify-content: center;
-        color: t.$color-special;
-        width: 214px;
-        margin-left: auto;
-        margin-right: auto;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .Actions {
-
-        .Leave {
-            @include WarnBtn;
-            border: 2px solid t.$color-warning;
-            background-color: t.$color-btn;
-            color: t.$color-warning;
-        }
-
-        .ChangeKey {
-            @include WarnBtn;
-            border: 2px solid t.$color-special;
-            background-color: t.$color-btn;
-            color: t.$color-special;
-        }
-    }
-}
-
 @mixin optionsButtonLeft {
     @include t.Text;
+    background-color: t.$color-btn;
     height: 48px;
     width: 120px;
     border-radius: 8px;
@@ -59,8 +11,18 @@
     border-bottom-right-radius: 0; 
 }
 
+@mixin optionsButtonCenter {
+    @include t.Text;
+    background-color: t.$color-btn;
+    height: 48px;
+    width: 120px;
+    border-left: none;
+    border-right: none;
+}
+
 @mixin optionsButtonRight {
     @include t.Text;
+    background-color: t.$color-btn;
     height: 48px;
     width: 120px;
     border-radius: 8px;
@@ -69,12 +31,24 @@
     border-bottom-left-radius: 0; 
 }
 
-.VisualOptions {
+@mixin Options {
     margin-top: 4px;
+}
+
+@mixin PopoverContentArea {
+    background-color: t.$color-btn;
+    border-radius: 8px;
+    height: 46px;
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.VisualOptions {
+    @include Options;
 
     .blueThemeLeftBtn {
         @include optionsButtonLeft;
-        background-color: t.$color-btn;
         color: t.$color-pick-blue;
         border-top: 2px solid t.$color-border-blue;
         border-left: 2px solid t.$color-border-blue;
@@ -83,7 +57,6 @@
 
     .blueThemeRightBtn {
         @include optionsButtonRight;
-        background-color: t.$color-btn;
         color: t.$color-pick-blue;
         border-top: 2px solid t.$color-border-blue;
         border-right: 2px solid t.$color-border-blue;
@@ -92,7 +65,6 @@
 
     .greenThemeLeftBtn {
         @include optionsButtonLeft;
-        background-color: t.$color-btn;
         color: t.$color-pick-green;
         border-top: 2px solid t.$color-border-green;
         border-left: 2px solid t.$color-border-green;
@@ -101,7 +73,6 @@
 
     .greenThemeRightBtn {
         @include optionsButtonRight;
-        background-color: t.$color-btn;
         color: t.$color-pick-green;
         border-top: 2px solid t.$color-border-green;
         border-right: 2px solid t.$color-border-green;
@@ -110,7 +81,6 @@
 
     .redThemeLeftBtn {
         @include optionsButtonLeft;
-        background-color: t.$color-btn;
         color: t.$color-pick-red;
         border-top: 2px solid t.$color-border-red;
         border-left: 2px solid t.$color-border-red;
@@ -119,7 +89,6 @@
 
     .redThemeRightBtn {
         @include optionsButtonRight;
-        background-color: t.$color-btn;
         color: t.$color-pick-red;
         border-top: 2px solid t.$color-border-red;
         border-right: 2px solid t.$color-border-red;
@@ -128,7 +97,6 @@
 
     .orangeThemeLeftBtn {
         @include optionsButtonLeft;
-        background-color: t.$color-btn;
         color: t.$color-pick-orange;
         border-top: 2px solid t.$color-border-orange;
         border-left: 2px solid t.$color-border-orange;
@@ -137,7 +105,6 @@
 
     .orangeThemeRightBtn {
         @include optionsButtonRight;
-        background-color: t.$color-btn;
         color: t.$color-pick-orange;
         border-top: 2px solid t.$color-border-orange;
         border-right: 2px solid t.$color-border-orange;
@@ -146,7 +113,6 @@
 
     .yellowThemeLeftBtn {
         @include optionsButtonLeft;
-        background-color: t.$color-btn;
         color: t.$color-pick-yellow;
         border-top: 2px solid t.$color-border-yellow;
         border-left: 2px solid t.$color-border-yellow;
@@ -156,11 +122,57 @@
 
     .yellowThemeRightBtn {
         @include optionsButtonRight;
-        background-color: t.$color-btn;
         color: t.$color-pick-yellow;
         border-top: 2px solid t.$color-border-yellow;
         border-right: 2px solid t.$color-border-yellow;
         border-bottom: 2px solid t.$color-border-yellow;
+    }
+}
+
+.PopoverContentVisualArea {
+    @include PopoverContentArea;
+    width: 242px;
+}
+
+.Account {
+    margin-top: 64px;
+
+    .AccountOptionsBtn {
+        color: t.$color-warning;
+        border: 2px solid t.$color-warning;
+    }
+
+    .PopoverContentAccountArea {
+        @include PopoverContentArea;
+        width: 362px;
+    }   
+
+}
+
+.AccountOptions {
+    @include Options;
+
+    .Leave {
+        @include optionsButtonLeft;
+        color: t.$color-warning;
+        border-top: 2px solid t.$color-warning;
+        border-left: 2px solid t.$color-warning;
+        border-bottom: 2px solid t.$color-warning;
+    }
+
+    .Delete {
+        @include optionsButtonCenter;
+        color: t.$color-warning;
+        border-top: 2px solid t.$color-warning;
+        border-bottom: 2px solid t.$color-warning;
+    }
+
+    .ChangeKey {
+        @include optionsButtonRight;
+        color: t.$color-warning;
+        border-top: 2px solid t.$color-warning;
+        border-right: 2px solid t.$color-warning;
+        border-bottom: 2px solid t.$color-warning;
     }
 }
 
@@ -173,14 +185,43 @@
     flex-wrap: wrap;
 
     .Response {
-        color: t.$color-special;
         margin: 12px;
         background-color: t.$color-btn;
         padding: 12px;
         border: 2px solid t.$color-border-default;
         border-radius: 8px;
+
+        .blueThemeUsername {
+            color: t.$color-pick-blue;
+        }
+
+        .greenThemeUsername {
+            color: t.$color-pick-green;
+        }
+
+        .redThemeUsername {
+            color: t.$color-pick-red;
+        }
+
+        .orangeThemeUsername {
+            color: t.$color-pick-orange;
+        }
+        
+        .yellowThemeUsername {
+            color: t.$color-pick-yellow;
+        }
+
+        .Points {
+            margin-left: 12px;
+            color: t.$color-special;
+        }
     }
 
+}
+
+.SearchInput {
+    width: 390px;
+    margin-top: 14px;
 }
 
 .PageNum {
@@ -188,8 +229,12 @@
 }
 
 .PageBtn {
+    margin-bottom: 42px;
 
     .PageArrow {
+        margin-top: 8px;
+        width: 100%;
+        height: 100%;
         color: t.$color-special;
     }
 }

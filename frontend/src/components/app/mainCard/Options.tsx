@@ -11,8 +11,6 @@ import { useNavigate } from "react-router-dom"
 
 var Options: FC = function () {
 
-    var accountName = localStorage.getItem('name')
-
     var [ buttonTheme, setButtonTheme ] = useAtom(colorThemeAtom)
     var setCardTheme = useSetAtom(cardThemeAtom)
 
@@ -55,11 +53,13 @@ var Options: FC = function () {
                     <PickText className={buttonTheme}>Options</PickText>
                 </Flex>
 
-                <Flex justify={'center'}  >
+                <Flex justify={'center'} className={styles.Visual} direction={'column'}  >
                     <Popover.Root>
+
                         <Popover.Trigger asChild >
                             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >Visual</motion.button>
                         </Popover.Trigger>
+
                         <Popover.Portal>
 
                             <AnimatePresence>
@@ -84,24 +84,58 @@ var Options: FC = function () {
                             </AnimatePresence>
                             
                         </Popover.Portal>
+
                     </Popover.Root>
+
+                    <div className={styles.PopoverContentVisualArea} />
+
                 </Flex>
 
                 <Flex className={styles.Account} justify={'center'} direction={'column'} >
-                    
-                    <h1 className={styles.Name}>{accountName} </h1>
 
-                    <Flex className={styles.Actions} justify={'center'}  direction={'row'} >
+                    <Popover.Root>
 
-                        <motion.div onClick={leaveAcc} className={styles.Leave} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >
-                            <h1>Leave Account</h1>
-                        </motion.div>
+                        <Popover.Trigger asChild >
+                            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} className={styles.AccountOptionsBtn} >{localStorage.getItem('name')} </motion.button>
+                        </Popover.Trigger>
 
-                        <motion.div className={styles.ChangeKey} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95, backgroundColor: 'hsl(0, 0%, 5%)' }} >
-                            <h1>Change Key</h1>
-                        </motion.div>
+                        <Popover.Portal>
 
-                    </Flex>
+                            <AnimatePresence>
+                                <Popover.Content side="bottom" >
+                            
+                                    <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} className={styles.AccountOptions} >
+
+                                        <motion.button onClick={leaveAcc} className={styles.Leave} 
+                                            whileHover={{ scaleX: 1.1 }} whileTap={{ scale: 1, backgroundColor: 'hsl(0, 0%, 5%)' }} 
+                                        >
+                                            Leave
+                                        </motion.button>
+                                
+                                        <motion.button className={styles.Delete} onClick={newButtonTheme} 
+                                            whileHover={{ scaleX: 1.1 }} whileTap={{ scale: 1, backgroundColor: 'hsl(0, 0%, 5%)' }} 
+                                        >
+                                            Change key
+                                        </motion.button>
+
+                                        <motion.button className={styles.ChangeKey} onClick={newButtonTheme} 
+                                            whileHover={{ scaleX: 1.1 }} whileTap={{ scale: 1, backgroundColor: 'hsl(0, 0%, 5%)' }} 
+                                        >
+                                            Delete
+                                        </motion.button>
+
+                                    </motion.div>
+
+
+                                
+                                </Popover.Content>
+                            </AnimatePresence>
+                            
+                        </Popover.Portal>
+
+                    </Popover.Root>
+
+                    <div className={styles.PopoverContentAccountArea} />
 
                 </Flex>
 

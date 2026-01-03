@@ -60,7 +60,7 @@ var friendsRoutes = function ( fastify : any, options : any, done : any ) {
 
     fastify.get('/friends/find', friendsFind)
 
-    fastify.post('/friends/make', friendsMake)
+    fastify.post('/friends/make', { preHandler: [fastify.auth], ...friendsMake })
 
     done() 
 }

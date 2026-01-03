@@ -18,15 +18,16 @@
 
 # POST http://localhost:5000/friends/make HTTP/1.1
 # Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmFsZXJvZmluIiwiaWF0IjoxNzY3NDQwNzYwfQ.VCINe1XJ8H02Epw8E7h90FGKYnjfDfuca6UddTZL48Y
 
 # {
 #     "name": "valerofin",
-#     "friend_name": "test"
+#     "friend_name": "test1"
 # }
 
 # POST http://localhost:5000/user/click HTTP/1.1
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmFsZXJvZmluIiwiaWF0IjoxNzY3Mzc5NzM1fQ.mXPJC8g0LQJMC-b-OZ_TqrHehWZpod3J805_4WXqJv4
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmFsZXJvZmluIiwiaWF0IjoxNzY3NDQwNzYwfQ.VCINe1XJ8H02Epw8E7h90FGKYnjfDfuca6UddTZL48Y
 
 # {
 #     "name": "test"

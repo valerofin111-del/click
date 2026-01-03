@@ -12,7 +12,8 @@ export var _friendsFind = async (req : FastifyRequest, reply : FastifyReply) => 
                 name: { startsWith: search }
             },
             take: limit,
-            skip: skipPages
+            skip: skipPages,
+            select: { name: true, points: true }
         })
         
 

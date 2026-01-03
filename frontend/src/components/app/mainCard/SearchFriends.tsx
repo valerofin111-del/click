@@ -9,7 +9,7 @@ import Loading from "../../fallback/Loading"
 import Error from "../../fallback/Error"
 import NoResults from "../../fallback/NoResults"
 import axios from "axios"
-import { useEffect, useState, type FC } from "react"
+import { use, useEffect, useState, type FC } from "react"
 import { useDebounce } from 'use-debounce'
 import styles from '../../../styles/mainCard.module.scss'
 import * as Tooltip from '@radix-ui/react-tooltip'
@@ -56,6 +56,26 @@ var SearchFriends: FC = () => {
         }
     }, [search])
 
+    var addToFriends = (e : any) => {
+        var friendName = e.currentTarget.getAttribute('data-friend-name')
+
+        axios.post('http://localhost:5000/friends/make', 
+        {
+            name: localStorage.getItem('name'), 
+            friend_name: friendName
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((response) => response.data)
+            .catch((e) => console.error(e))
+    }
+
+    var usernameTheme = theme + 'Username'
+
     var Response : FC = () => {
         if (search.length === 0) {
             return <Invite />
@@ -70,7 +90,13 @@ var SearchFriends: FC = () => {
                 <>
                     {data && data.map((friend : any) => (
                         <Flex direction={'column'} >
-                            <p className={styles.Response} key={friend.name} >{friend.name} </p>
+                            <motion.div className={styles.Response} key={friend.name}
+                                onClick={addToFriends} data-friend-name={friend.name}
+                                whileHover={{  }} whileTap={{ scale: 1.2, backgroundColor: 'hsl(0, 0%, 5%)' }}
+                            >
+                                <span className={styles[usernameTheme]} >{friend.name} </span>
+                                <span className={styles.Points}>{friend.points} </span>
+                            </motion.div>
                         </Flex>
                     ))}
                 </>
@@ -97,11 +123,11 @@ var SearchFriends: FC = () => {
             
             </Flex>
             
-            <Flex justify={'center'} direction={'row'} style={{ marginTop: '20px', maxWidth: '636px' }} >
+            <Flex justify={'center'} direction={'row'} style={{ marginTop: '8px', maxWidth: '636px' }} >
 
             <Tooltip.Root delayDuration={0} >
                 <Tooltip.Trigger asChild>
-                    <motion.button className={styles.PageBtn} initial={{ scale: 0.5 }} animate={{ x: 22, y: -14 }} 
+                    <motion.button className={styles.PageBtn} initial={{ scale: 0.6 }}
                         whileTap={{scale: 0.6}} onClick={() => setPage(prev => {
                             if (prev < 2) {
                                 return prev
@@ -120,13 +146,13 @@ var SearchFriends: FC = () => {
                 </Tooltip.Content>
             </Tooltip.Root>
 
-                <motion.input placeholder="username..." style={{ width: '390px' }} onChange={(e) => {
+                <motion.input placeholder="username..." className={styles.SearchInput} onChange={(e) => {
                     setSearch(e.target.value)
-                }} value={search} ></motion.input>
+                }} value={search} />
 
                 <Tooltip.Root delayDuration={0} >
                     <Tooltip.Trigger asChild>
-                        <motion.button className={styles.PageBtn} initial={{ scale: 0.5 }} animate={{ x: -22, y: -14 }} 
+                        <motion.button className={styles.PageBtn} initial={{ scale: 0.6 }}
                             whileTap={{scale: 0.6}} onClick={() => setPage(prev => prev + 1)} 
                         >
                             <motion.div className={styles.PageArrow} whileTap={{ x: 34 }} >{'>'}</motion.div> 
